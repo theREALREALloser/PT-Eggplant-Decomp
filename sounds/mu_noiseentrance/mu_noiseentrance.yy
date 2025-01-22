@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_noiseentrance",
-  "duration": 115.82694,
+  "duration": 115.826,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

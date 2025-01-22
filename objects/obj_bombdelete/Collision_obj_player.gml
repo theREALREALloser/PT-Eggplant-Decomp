@@ -1,8 +1,8 @@
 if (!collide)
 {
-    if (other.state == (42 << 0) || other.state == (43 << 0))
+    if (other.state == states.handstandjump || other.state == states.lungeattack)
     {
-        other.state = (183 << 0)
+        other.state = states.bombdelete
         collide = true
     }
 }

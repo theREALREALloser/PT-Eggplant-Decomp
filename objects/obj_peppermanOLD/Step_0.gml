@@ -1,5 +1,5 @@
 targetplayer = (global.coop ? instance_nearest(x, y, obj_player) : obj_player1)
-if (obj_bosscontroller.state == (144 << 0))
+if (obj_bosscontroller.state == states.arenaintro)
     return;
 if (hp <= 0 && state != (145 << 0) && state != (162 << 0))
 {
@@ -10,14 +10,14 @@ if (chooseparry_buffer > 0)
     chooseparry_buffer--
 switch phase
 {
-    case 1:
-    case 2:
+    case states.revolver:
+    case states.dynamite:
         normal_func = boss_pepperman_normal
         break
-    case 3:
-    case 4:
-    case 5:
-    case 6:
+    case states.boots:
+    case states.grabbed:
+    case states.tumble:
+    case states.finishingblow:
         normal_func = boss_pepperman_phase3normal
         break
 }
@@ -28,29 +28,29 @@ switch state
         grav = 0.5
         state_boss_arenaround()
         break
-    case (0 << 0):
+    case states.normal:
         grav = 0.5
         self.normal_func()
         break
-    case (92 << 0):
+    case states.jump:
         grav = 0.5
         boss_pepperman_jump()
         invincible = true
         inv_timer = 2
         break
-    case (108 << 0):
+    case states.freefall:
         grav = 0.5
         boss_pepperman_freefall()
         break
-    case (111 << 0):
+    case states.freefallland:
         grav = 0.5
         boss_pepperman_freefallland()
         break
-    case (122 << 0):
+    case states.freefallprep:
         grav = 0.5
         boss_pepperman_freefallprep()
         break
-    case (153 << 0):
+    case states.shoulderbash:
         grav = 0.5
         boss_pepperman_shoulderbash()
         break
@@ -66,7 +66,7 @@ switch state
         grav = 0.5
         boss_pepperman_superattackcharge()
         break
-    case (76 << 0):
+    case states.superslam:
         grav = 0.5
         boss_pepperman_superslam()
         break
@@ -78,7 +78,7 @@ switch state
         grav = 0.5
         boss_pepperman_fistmatchend()
         break
-    case (83 << 0):
+    case states.shoulder:
         grav = 0.5
         boss_pepperman_shoulder()
         break
@@ -86,45 +86,45 @@ switch state
         grav = 0.5
         boss_pepperman_shoulderturn()
         break
-    case (134 << 0):
+    case states.walk:
         grav = 0.5
         state_boss_walk(boss_pepperman_decide_attack)
         invincible = true
         inv_timer = 2
         break
-    case (128 << 0):
+    case states.charge:
         grav = 0.5
         boss_pepperman_charge()
         invincible = true
         inv_timer = 2
         break
-    case (61 << 0):
+    case states.chainsaw:
         grav = 0.5
         state_boss_chainsaw()
         break
-    case (84 << 0):
+    case states.backbreaker:
         grav = 0.5
         state_boss_taunt()
         invincible = true
         inv_timer = 2
         break
-    case (147 << 0):
+    case states.parry_:
         grav = 0.5
         state_boss_parry()
         invincible = true
         inv_timer = 2
         break
-    case (137 << 0):
+    case states.hit:
         grav = 0.5
         scr_enemy_hit()
         stunned = targetstunned
         break
-    case (138 << 0):
+    case states.stun:
         grav = 0.5
         state_boss_stun()
         break
 }
 
 xscale = image_xscale
-colliding = (!((state == (76 << 0) || state == (162 << 0) || state == (158 << 0) || state == (159 << 0))))
-attacking = (state == (153 << 0) || state == (108 << 0) || state == (122 << 0) || state == (157 << 0) || state == (83 << 0) || state == (76 << 0) || state == (162 << 0) || state == (158 << 0) || state == (159 << 0) || state == (134 << 0))
+colliding = (!((state == states.superslam || state == (162 << 0) || state == (158 << 0) || state == (159 << 0))))
+attacking = (state == states.shoulderbash || state == states.freefall || state == states.freefallprep || state == (157 << 0) || state == states.shoulder || state == states.superslam || state == (162 << 0) || state == (158 << 0) || state == (159 << 0) || state == states.walk)

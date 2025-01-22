@@ -5,7 +5,7 @@ if (obj_player.isgustavo == false)
 }
 if (!trapped)
 {
-    if (obj_player1.sprite_index == spr_lonegustavo_hurt || obj_player1.state == (259 << 0) || obj_player1.state == (197 << 0) || obj_player1.state == (202 << 0) || obj_player1.state == (261 << 0) || obj_player1.state == (260 << 0))
+    if (obj_player1.sprite_index == spr_lonegustavo_hurt || obj_player1.state == states.ratmountpunch || obj_player1.state == states.ratmountgroundpound || obj_player1.state == states.ratmountgrind || obj_player1.state == states.ratmountladder || obj_player1.state == states.ratmountcrouch)
     {
         wait = true
         sprite_index = spr_lonebrick_wait

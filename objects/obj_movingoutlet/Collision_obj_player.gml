@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if ((state == (47 << 0) || state == (48 << 0) || state == (38 << 0)) && cutscene == false)
+    if ((state == states.knightpep || state == states.knightpepattack || state == states.knightpepslopes) && cutscene == false)
     {
         with (instance_create(x, y, obj_knightdebris))
             image_index = 0
@@ -22,11 +22,11 @@ with (obj_player)
         image_index = 0
         obj_player.image_index = 0
         obj_player.flash = true
-        state = (106 << 0)
+        state = states.bump
     }
-    else if (state == (51 << 0) && hurted == false)
+    else if (state == states.bombpep && hurted == false)
         instance_create(x, y, obj_bombexplosion)
-    else if (state == (33 << 0))
+    else if (state == states.boxxedpep)
     {
         with (instance_create(x, y, obj_boxxeddebris))
             image_index = 0
@@ -46,9 +46,9 @@ with (obj_player)
         image_index = 0
         obj_player.image_index = 0
         obj_player.flash = true
-        state = (106 << 0)
+        state = states.bump
     }
-    else if (state == (24 << 0) || state == (25 << 0))
+    else if (state == states.cheesepep || state == states.cheesepepstick)
     {
         obj_player.grav = 0.5
         repeat (8)
@@ -67,9 +67,9 @@ with (obj_player)
         image_index = 0
         obj_player.image_index = 0
         obj_player.flash = true
-        state = (106 << 0)
+        state = states.bump
     }
-    else if (state != (107 << 0) && hurted == false && cutscene == false && state != (106 << 0))
+    else if (state != states.hurt && hurted == false && cutscene == false && state != states.bump)
     {
         global.hurtcounter += 1
         alarm[8] = 60
@@ -101,7 +101,7 @@ with (obj_player)
             instance_create(x, y, obj_pizzaloss)
         }
         instance_create(x, y, obj_spikehurteffect)
-        state = (107 << 0)
+        state = states.hurt
         image_index = 0
         flash = true
     }

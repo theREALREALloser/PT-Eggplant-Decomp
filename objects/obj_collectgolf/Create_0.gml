@@ -4,7 +4,7 @@ with (other)
 {
     image_speed = 0.35
     global.collected = false
-    global.collectsound = 0
+    global.collectsound = sfx_cheesejump
 }
 if (obj_player.character == "S")
     sprite_index = spr_snickcollectible1

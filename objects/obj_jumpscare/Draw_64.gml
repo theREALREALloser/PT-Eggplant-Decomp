@@ -1,10 +1,10 @@
 switch state
 {
-    case 0:
-    case 2:
+    case states.normal:
+    case states.dynamite:
         draw_sprite(sprite_index, image_index, 0, 0)
         break
-    case 1:
+    case states.revolver:
         var p = 4
         var t = 0
         if (yy > p)

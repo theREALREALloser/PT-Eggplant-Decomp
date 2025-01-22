@@ -8,7 +8,7 @@ boss_array[4] = [52, 6]
 boss_array[5] = [832, 6]
 boss_array[6] = [191, 6]
 state = (145 << 0)
-attack_pool = [(174 << 0), (175 << 0), (176 << 0), (92 << 0), (177 << 0), (179 << 0), (180 << 0)]
+attack_pool = [states.shield, (175 << 0), (176 << 0), states.jump, (177 << 0), (179 << 0), (180 << 0)]
 ds_map_set(player_hurtstates, (42 << 0), 30)
 ds_map_set(player_hurtstates, (41 << 0), 50)
 ds_map_set(player_hurtstates, (104 << 0), 20)
@@ -99,7 +99,7 @@ function boss_hurt_noplayer(argument0) //boss_hurt_noplayer_gml_Object_obj_mrsti
 
 function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_mrstickboss_Create_0
 {
-    if ((!argument1.inv_frames) && (argument1.state != (84 << 0) || argument1.parry_inst == -4))
+    if ((!argument1.inv_frames) && (argument1.state != states.backbreaker || argument1.parry_inst == -4))
     {
         hitstate = state
         hithsp = hsp

@@ -1,4 +1,4 @@
-if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != (4 << 0) && baddieID.state != (137 << 0) && (!baddieID.invincible) && baddieID.instantkillable)
+if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != states.grabbed && baddieID.state != states.hit && (!baddieID.invincible) && baddieID.instantkillable)
 {
     scr_soundeffect(sfx_punch)
     if (!baddieID.important)
@@ -14,7 +14,7 @@ if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != (4 <
             instance_destroy()
             instance_destroy(baddieID)
         }
-          if (other.object_index == obj_playernoisearrow)
+        if (other.object_index == obj_playernoisearrow)
             instance_destroy(other)
     }
     else
@@ -26,7 +26,7 @@ if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != (4 <
         baddieID.hp -= 1
         instance_create(baddieID.x, baddieID.y, obj_parryeffect)
         baddieID.alarm[3] = 3
-        baddieID.state = (137 << 0)
+        baddieID.state = states.hit
         baddieID.image_xscale = (-other.image_xscale)
         instance_create(x, y, obj_slapstar)
         instance_create(x, y, obj_slapstar)

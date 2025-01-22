@@ -35,7 +35,7 @@ function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_pizzafac
     var _prevstate = state
     if (phase < 2)
         self.SUPER_player_hurt(argument0, argument1)
-    else if ((argument1.state != (84 << 0) || argument1.parry_inst == -4) && argument1.state != (147 << 0) && ds_list_find_index(hitlist, argument1) == -1)
+    else if ((argument1.state != states.backbreaker || argument1.parry_inst == -4) && argument1.state != states.parry_ && ds_list_find_index(hitlist, argument1) == -1)
     {
         ds_list_add(hitlist, argument1)
         self.SUPER_player_hurt(argument0, argument1)
@@ -53,18 +53,18 @@ function boss_hurt(argument0, argument1) //boss_hurt_gml_Object_obj_pizzafacebos
         var _removehp = true
         with (argument1)
         {
-            if (state != (43 << 0) && state != (47 << 0))
+            if (state != states.lungeattack && state != states.knightpep)
                 scr_pummel()
-            else if (state == (47 << 0) && vsp > 0 && y < (other.y - 30))
+            else if (state == states.knightpep && vsp > 0 && y < (other.y - 30))
             {
                 sprite_index = spr_knightpep_doublejump
                 image_index = 0
                 vsp = -11
                 movespeed = 6
             }
-            else if (state != (43 << 0) && state != (147 << 0))
+            else if (state != states.lungeattack && state != states.parry_)
                 _removehp = false
-            if (state == (43 << 0))
+            if (state == states.lungeattack)
                 movespeed = 4
         }
         if _removehp

@@ -10,11 +10,11 @@ switch state
         grav = 0.5
         state_boss_arenaround()
         break
-    case (0 << 0):
+    case states.normal:
         grav = 0.5
         boss_mrstick_normal()
         break
-    case (174 << 0):
+    case states.shield:
         grav = 0.5
         boss_mrstick_shield()
         break
@@ -26,7 +26,7 @@ switch state
         grav = 0.5
         boss_mrstick_panicjump()
         break
-    case (92 << 0):
+    case states.jump:
         grav = 0.5
         boss_mrstick_jump()
         break
@@ -54,38 +54,38 @@ switch state
         grav = 0.5
         boss_mrstick_mockery()
         break
-    case (134 << 0):
+    case states.walk:
         grav = 0.5
         state_boss_walk(boss_mrstick_decide_attack)
         inv_timer = 2
         invincible = true
         break
-    case (61 << 0):
+    case states.chainsaw:
         grav = 0.5
         state_boss_chainsaw()
         break
-    case (84 << 0):
+    case states.backbreaker:
         grav = 0.5
         state_boss_taunt()
         invincible = true
         inv_timer = 2
         break
-    case (147 << 0):
+    case states.parry_:
         grav = 0.5
         state_boss_parry()
         invincible = true
         inv_timer = 2
         break
-    case (137 << 0):
+    case states.hit:
         grav = 0.5
         scr_enemy_hit()
         stunned = targetstunned
         break
-    case (138 << 0):
+    case states.stun:
         grav = 0.5
         state_boss_stun()
         break
 }
 
-colliding = (!((state == (92 << 0) || state == (180 << 0) || state == (181 << 0))))
-attacking = (state == (174 << 0) || state == (92 << 0) || state == (180 << 0) || state == (181 << 0) || state == (177 << 0))
+colliding = (!((state == states.jump || state == (180 << 0) || state == (181 << 0))))
+attacking = (state == states.shield || state == states.jump || state == (180 << 0) || state == (181 << 0) || state == (177 << 0))

@@ -4,16 +4,16 @@ if (hp <= 0 && state != (145 << 0) && state != (162 << 0))
     if ((!thrown) && (!destroyable))
         self.boss_destroy(lastplayerid)
 }
-if ((state == (103 << 0) || state == (105 << 0) || state == (102 << 0) || state == (82 << 0) || state == (80 << 0) || state == (166 << 0) || state == (42 << 0)) && alarm[0] <= 0)
+if ((state == states.mach1 || state == states.machslide || state == states.crouchslide || state == states.uppunch || state == states.punch || state == (166 << 0) || state == states.handstandjump) && alarm[0] <= 0)
     alarm[0] = 6
 if (chooseparry_buffer > 0)
     chooseparry_buffer--
-if (important && honor && nexthonor && phase > 3 && state != (160 << 0))
+if (important && honor && nexthonor && phase > states.boots && state != (160 << 0))
 {
     var ch = false
     with (obj_player)
     {
-        if (state == (41 << 0))
+        if (state == states.chainsawbump)
             ch = true
     }
     if (instance_exists(obj_shotgunbullet) || ch)
@@ -29,9 +29,9 @@ if (important && honor && nexthonor && phase > 3 && state != (160 << 0))
 }
 switch phase
 {
-    case 4:
-    case 5:
-    case 6:
+    case states.grabbed:
+    case states.tumble:
+    case states.finishingblow:
         normal_func = boss_vigilante_normal_phase4
         break
     default:
@@ -45,7 +45,7 @@ switch state
         state_boss_arenaround()
         honor = nexthonor
         break
-    case (0 << 0):
+    case states.normal:
         grav = 0.5
         self.normal_func()
         break
@@ -53,39 +53,39 @@ switch state
         grav = 0.5
         boss_vigilante_float()
         break
-    case (1 << 0):
+    case states.revolver:
         grav = 0.5
         boss_vigilante_revolver()
         break
-    case (103 << 0):
+    case states.mach1:
         grav = 0.5
         boss_vigilante_mach1()
         break
-    case (102 << 0):
+    case states.crouchslide:
         grav = 0.5
         boss_vigilante_crouchslide()
         break
-    case (105 << 0):
+    case states.machslide:
         grav = 0.5
         boss_vigilante_machslide()
         break
-    case (106 << 0):
+    case states.bump:
         grav = 0.5
         state_boss_bump()
         break
-    case (92 << 0):
+    case states.jump:
         grav = 0.5
         boss_vigilante_jump()
         break
-    case (2 << 0):
+    case states.dynamite:
         grav = 0.5
         boss_vigilante_dynamite()
         break
-    case (128 << 0):
+    case states.charge:
         grav = 0.5
         boss_vigilante_charge()
         break
-    case (80 << 0):
+    case states.punch:
         grav = 0.5
         boss_vigilante_punch()
         break
@@ -93,15 +93,15 @@ switch state
         grav = 0.5
         boss_vigilante_groundpunchstart()
         break
-    case (122 << 0):
+    case states.freefallprep:
         grav = 0.5
         boss_vigilante_freefallprep()
         break
-    case (108 << 0):
+    case states.freefall:
         grav = 0.5
         boss_vigilante_freefall()
         break
-    case (111 << 0):
+    case states.freefallland:
         grav = 0.5
         boss_vigilante_freefallland()
         break
@@ -109,11 +109,11 @@ switch state
         grav = 0.5
         boss_vigilante_millionpunch()
         break
-    case (82 << 0):
+    case states.uppunch:
         grav = 0.5
         boss_vigilante_uppunch()
         break
-    case (42 << 0):
+    case states.handstandjump:
         grav = 0.5
         boss_vigilante_handstandjump()
         break
@@ -125,35 +125,35 @@ switch state
         grav = 0.5
         boss_vigilante_superattack()
         break
-    case (134 << 0):
+    case states.walk:
         grav = 0.5
         state_boss_walk(boss_vigilante_decide_attack)
         inv_timer = 2
         invincible = true
         break
-    case (61 << 0):
+    case states.chainsaw:
         grav = 0.5
         state_boss_chainsaw()
         break
-    case (84 << 0):
+    case states.backbreaker:
         grav = 0.5
         state_boss_taunt()
         invincible = true
         inv_timer = 2
         break
-    case (147 << 0):
+    case states.parry_:
         grav = 0.5
         state_boss_parry()
         invincible = true
         inv_timer = 2
         normalattack_cooldown = normalattack_max[(phase - 1)]
         break
-    case (137 << 0):
+    case states.hit:
         grav = 0.5
         scr_enemy_hit()
         stunned = targetstunned
         break
-    case (138 << 0):
+    case states.stun:
         grav = 0.5
         state_boss_stun()
         break
@@ -163,7 +163,7 @@ if (hitstate == (160 << 0) || state == (160 << 0))
 {
     with (lastplayerid)
     {
-        if (state != (137 << 0) && state != (156 << 0))
+        if (state != states.hit && state != states.thrown)
         {
             if (sprite_index == spr_player_pistolshot && image_index > (image_number - 1))
                 sprite_index = spr_player_pistolidle
@@ -172,4 +172,4 @@ if (hitstate == (160 << 0) || state == (160 << 0))
         }
     }
 }
-attacking = (state == (1 << 0) || state == (103 << 0) || state == (128 << 0) || state == (80 << 0) || state == (164 << 0) || state == (166 << 0) || state == (108 << 0) || state == (82 << 0) || state == (42 << 0) || state == (160 << 0) || state == (158 << 0) || state == (102 << 0))
+attacking = (state == states.revolver || state == states.mach1 || state == states.charge || state == states.punch || state == (164 << 0) || state == (166 << 0) || state == states.freefall || state == states.uppunch || state == states.handstandjump || state == (160 << 0) || state == (158 << 0) || state == states.crouchslide)

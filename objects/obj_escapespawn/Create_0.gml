@@ -1,5 +1,5 @@
 baddieID = noone
 active = false
 disappear = false
-state = 0
+state = states.normal
 image_speed = 0.5

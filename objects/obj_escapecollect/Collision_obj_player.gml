@@ -2,7 +2,7 @@ if (room == rm_editor)
     return;
 if (image_alpha == 1)
 {
-    if (other.state != (186 << 0))
+    if (other.state != states.gotoplayer)
     {
         if audio_is_playing(sfx_collecttopping)
             audio_stop_sound(sfx_collecttopping)
@@ -20,7 +20,7 @@ if (image_alpha == 1)
             global.collect += val
         else
             global.collectN += val
-        create_collect(x, y, sprite_index);
+        create_collect(x, y, sprite_index)
         with (instance_create((x + 16), y, obj_smallnumber))
             number = string(val)
         instance_destroy()

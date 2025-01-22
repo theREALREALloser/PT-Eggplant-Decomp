@@ -23,7 +23,7 @@ function wrap() //wrap
             if (_val < _min)
                 _val = _max - (_min - _val)
             else if (_val > _max)
-                _val = _min + _val - _max
+                _val = _min + (_val - _max)
         }
         return _val;
     }

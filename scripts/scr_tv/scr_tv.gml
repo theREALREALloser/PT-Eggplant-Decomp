@@ -2,7 +2,7 @@ function tv_set_idle() //tv_set_idle
 {
     with (obj_tv)
     {
-        state = (0 << 0)
+        state = states.normal
         sprite_index = spr_tv_idle
     }
 }
@@ -11,7 +11,7 @@ function tv_reset() //tv_reset
 {
     with (obj_tv)
     {
-        state = (0 << 0)
+        state = states.normal
         sprite_index = spr_tv_idle
         ds_list_clear(tvprompts_list)
     }
@@ -60,7 +60,7 @@ function tv_push_prompt(argument0, argument1, argument2, argument3) //tv_push_pr
         }
 
         if play
-            state = (0 << 0)
+            state = states.normal
     }
 }
 

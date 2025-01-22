@@ -10,7 +10,7 @@ else
         {
             secretjumped = false
             savedsecretinvincible = invincible
-            state = (266 << 0)
+            state = states.secret
         }
     }
     ds_list_clear(global.instancelist)

@@ -43,6 +43,6 @@ if (object_list != -4)
     {
         var x1 = x + sprite_width - 8
         var y1 = y - scroll_y
-        draw_rectangle_color(x1, y1, (x1 + 8), (y1 + sprite_height - scroll_ymax), c_white, c_white, c_white, c_white, false)
+        draw_rectangle_color(x1, y1, (x1 + 8), (y1 + (sprite_height - scroll_ymax)), c_white, c_white, c_white, c_white, false)
     }
 }

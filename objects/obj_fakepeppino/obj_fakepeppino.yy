@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_crouchmask",
     "path": "sprites/spr_crouchmask/spr_crouchmask.yy",
@@ -18,7 +18,7 @@
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
-  "physicsGroup": 1,
+  "physicsGroup": 0,
   "physicsDensity": 0.5,
   "physicsRestitution": 0.1,
   "physicsLinearDamping": 0.1,

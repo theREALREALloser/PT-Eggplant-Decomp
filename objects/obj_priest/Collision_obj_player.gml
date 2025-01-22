@@ -3,13 +3,13 @@ with (other)
 {
     if (!scr_transformationcheck())
     {
-        if (state == (11 << 0) || state == (12 << 0) || state == (14 << 0) || state == (12 << 0) || state == (33 << 0) || state == (35 << 0) || state == (34 << 0))
+        if (state == states.mort || state == states.mortjump || state == states.morthook || state == states.mortjump || state == states.boxxedpep || state == states.boxxedpepjump || state == states.boxxedpepspin)
         {
             if (hsp != 0)
                 xscale = sign(hsp)
             movespeed = abs(hsp)
         }
-        state = (0 << 0)
+        state = states.normal
         dir = xscale
         _transfo = true
         create_particle(x, y, (9 << 0))

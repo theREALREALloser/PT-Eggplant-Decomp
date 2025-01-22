@@ -3,15 +3,15 @@ var status = ds_map_find_value(async_load, "status")
 var error = ds_map_find_value(async_load, "error")
 switch state
 {
-    case 1:
+    case states.revolver:
         if (ident == saveid)
         {
             buffer_delete(savebuff)
             trace("Save status: ", status, ", error: ", error)
-            state = 0
+            state = states.normal
         }
         break
-    case 2:
+    case states.dynamite:
         if (ident == loadid)
         {
             var buffstring = buffer_read(loadbuff, buffer_string)
@@ -65,7 +65,7 @@ switch state
             buffer_delete(loadbuff)
             trace("inistr: ", ini_str)
             trace("buffstring: ", buffstring)
-            state = 0
+            state = states.normal
         }
         break
 }

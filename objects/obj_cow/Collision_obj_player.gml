@@ -1,8 +1,8 @@
 with (other)
 {
-    if (state != (190 << 0) && vsp > 0 && (!(place_meeting(x, yprevious, other))))
+    if (state != states.ridecow && vsp > 0 && (!(place_meeting(x, yprevious, other))))
     {
-        if (state == (11 << 0) || state == (12 << 0) || state == (13 << 0))
+        if (state == states.mort || state == states.mortjump || state == states.mortattack)
             has_mort = true
         else
             has_mort = false

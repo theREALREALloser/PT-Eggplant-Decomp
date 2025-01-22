@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_kidsparty.mp3",
-  "duration": 236.07729,
+  "duration": 236.077,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

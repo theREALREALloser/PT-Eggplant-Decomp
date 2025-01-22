@@ -37,7 +37,7 @@ function scr_playerreset() //scr_playerreset
             {
                 sprite_index = spr_tv_off
                 tvsprite = spr_tv_idle
-                state = (0 << 0)
+                state = states.normal
                 tv_set_idle()
             }
         }
@@ -162,7 +162,7 @@ function scr_playerreset() //scr_playerreset
             var destroy = true
             with (obj_player)
             {
-                if (state == (89 << 0) || state == (64 << 0))
+                if (state == states.gameover || state == states.timesup)
                     destroy = false
             }
             if destroy
@@ -177,8 +177,8 @@ function scr_playerreset() //scr_playerreset
         audio_stop_all()
         global.seconds = 59
         global.minutes = 1
-        obj_player1.state = (95 << 0)
-        obj_player2.state = (95 << 0)
+        obj_player1.state = states.comingoutdoor
+        obj_player2.state = states.comingoutdoor
         obj_player1.visible = true
         obj_player2.visible = true
         ds_list_clear(global.saveroom)

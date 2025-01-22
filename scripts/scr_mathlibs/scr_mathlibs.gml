@@ -136,7 +136,7 @@ function get_projectile_angle(argument0, argument1, argument2, argument3, argume
     var angle = 0
     if (root > 0)
     {
-        angle = radtodeg(arctan((sqr(argument4) + sqrt(root)) / argument5 * xt))
+        angle = radtodeg(arctan((sqr(argument4) + sqrt(root)) / (argument5 * xt)))
         if (xt < 0)
             angle -= 180
     }

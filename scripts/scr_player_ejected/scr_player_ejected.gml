@@ -17,7 +17,7 @@ function scr_player_ejected() //scr_player_ejected
             landAnim = false
             instance_create(x, y, obj_fadeout)
             targetRoom = lastroom
-            state = (0 << 0)
+            state = states.normal
             global.seconds = 20
             obj_camera.ded = false
         }
@@ -27,7 +27,7 @@ function scr_player_ejected() //scr_player_ejected
             {
                 landAnim = false
                 targetRoom = lastroom
-                state = (0 << 0)
+                state = states.normal
                 global.seconds = 20
                 obj_camera.ded = false
             }

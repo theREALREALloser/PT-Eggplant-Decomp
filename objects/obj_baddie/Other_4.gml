@@ -9,7 +9,7 @@ if (escape == true && (!_destroyed))
     var b = false
     with (obj_escapespawn)
     {
-        if (baddieID == other.id && state != 0)
+        if (baddieID == other.id && state != states.normal)
             b = true
     }
     if (!b)

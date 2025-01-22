@@ -1,4 +1,4 @@
-if (other.vsp > 0 && instance_exists(baddieID) && instance_exists(other.baddieID) &&  baddieID.destroyable)
+if (other.vsp > 0 && instance_exists(baddieID) && baddieID.destroyable)
 {
     if baddieID.destroyable
         instance_destroy(baddieID)

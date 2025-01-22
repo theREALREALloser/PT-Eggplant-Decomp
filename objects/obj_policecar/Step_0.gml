@@ -1,4 +1,4 @@
-if (state != (152 << 0))
+if (state != states.taxi2)
 {
     var xx = obj_player1.x
     var yy = obj_player1.y

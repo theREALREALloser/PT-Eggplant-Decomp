@@ -1,1 +1,1 @@
-global.breaksound = 0
+global.breaksound = sfx_cheesejump

@@ -15,7 +15,7 @@ if (self.room_place(hillbilly_pos.x, hillbilly_pos.y) != room_get_name(room))
         self.hillbilly_create(true, false)
     if (sound_pos.x == hillbilly_pos.x && sound_pos.y == hillbilly_pos.y)
     {
-        sound_buffer = 0
+        sound_buffer = sfx_cheesejump
         with (obj_hillbillymonster)
         {
             investigatestate = 0

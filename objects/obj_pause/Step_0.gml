@@ -1,19 +1,19 @@
 if ((!pause) && obj_player1.key_start)
 {
-    var cutscenehandler = false
+    var _cutscenehandler = false
     with (obj_cutscene_handler)
     {
         if (!loop)
-            cutscenehandler = true
+            _cutscenehandler = true
     }
     with (obj_secretportal)
     {
         if touched
-            cutscenehandler = true
+            _cutscenehandler = true
     }
     with (obj_secretportalstart)
-        cutscenehandler = true
-    if (obj_savesystem.state == 0 && (!cutscenehandler) && room != rank_room && room != Realtitlescreen && room != timesuproom)
+        _cutscenehandler = true
+    if (obj_savesystem.state == states.normal && (!_cutscenehandler) && room != rank_room && room != Realtitlescreen && room != timesuproom)
     {
         selected = 0
         if (!instance_exists(obj_pausefadeout))
@@ -105,8 +105,8 @@ if (pause && (!instance_exists(obj_option)))
                         scr_characterspr()
                     }
                     scr_playerreset()
-                    obj_player1.state = (18 << 0)
-                    obj_player2.state = (18 << 0)
+                    obj_player1.state = states.titlescreen
+                    obj_player2.state = states.titlescreen
                     obj_player1.targetDoor = "A"
                     if instance_exists(obj_player2)
                         obj_player2.targetDoor = "A"

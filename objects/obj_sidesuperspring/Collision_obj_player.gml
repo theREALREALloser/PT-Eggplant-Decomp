@@ -1,8 +1,8 @@
 with (other)
 {
-    if (state != (186 << 0))
+    if (state != states.gotoplayer)
     {
-        if (state == (53 << 0) || state == (32 << 0) || state == (94 << 0) || state == (184 << 0) || state == (78 << 0) || state == (5 << 0) || state == (21 << 0) || state == (38 << 0) || state == (65 << 0) || state == (121 << 0) || state == (104 << 0))
+        if (state == states.bombpepside || state == states.motorcycle || state == states.slipnslide || state == states.rocket || state == states.grind || state == states.tumble || state == states.cheeseball || state == states.knightpepslopes || state == states.machroll || state == states.mach3 || state == states.mach2)
         {
             other.sprite_index = spr_sidespringblock_bounce
             other.image_index = 0

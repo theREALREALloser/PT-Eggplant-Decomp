@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -38,7 +38,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player related stuff",
-    "path": "folders/Objects/Player related stuff.yy",
+    "name": "Player \"Related\"",
+    "path": "folders/Objects/Player \"Related\".yy",
   },
 }

@@ -2,7 +2,6 @@
 if (instance_number(obj_monstertrackingrooms) > 1)
 {
     instance_destroy()
-    return;
 }
 global.monsterlives_max = 3
 global.monsterlives = global.monsterlives_max
@@ -12,7 +11,7 @@ global.monster_targetDoor = "A"
 map_width = 5
 map_height = 5
 sound_pos = new Vector2(-1, -1)
-sound_buffer = 0
+sound_buffer = sfx_cheesejump
 room_grid = ds_grid_create(map_width, map_height)
 ds_grid_clear(room_grid, -4)
 ds_grid_add(room_grid, 0, 0, room_get_name(kidsparty_floor1_1))

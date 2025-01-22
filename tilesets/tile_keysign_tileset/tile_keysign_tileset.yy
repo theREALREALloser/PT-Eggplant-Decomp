@@ -1,14 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tile_keysign_tileset",
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default"
-  },
   "spriteId": {
-    "name": "tilespr_tile_keysign_tileset",
-    "path": "sprites/tilespr_tile_keysign_tileset/tilespr_tile_keysign_tileset.yy"
+    "name": "tile_keysign_tileset_sprite",
+    "path": "sprites/tile_keysign_tileset_sprite/tile_keysign_tileset_sprite.yy"
   },
   "tileWidth": 16,
   "tileHeight": 16,
@@ -16,14 +9,18 @@
   "tileyoff": 2,
   "tilehsep": 4,
   "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default"
+  },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
-  "spriteNoExport": true,
   "out_columns": 6,
   "tile_count": 36,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.000150001500014,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -66,6 +63,7 @@
     "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
     "TileSerialiseData": []
@@ -73,5 +71,9 @@
   "parent": {
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy"
-  }
+  },
+  "resourceVersion": "1.0",
+  "name": "tile_keysign_tileset",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

@@ -7,18 +7,18 @@ if (!((captain_x > (captain_xto - thr) && captain_x < (captain_xto + thr) && cap
 }
 switch state
 {
-    case (0 << 0):
+    case states.normal:
         break
-    case (8 << 0):
+    case states.transitioncutscene:
         if (floor(captain_index) == (sprite_get_number(captain_sprite) - 1))
         {
             captain_sprite = spr_captainbomb
-            state = (0 << 0)
+            state = states.normal
             with (instance_create(crosshair_x, (camera_get_view_y(view_camera[0]) - 32), obj_frontcanonbomb))
                 y_to = other.crosshair_y
         }
         break
-    case (89 << 0):
+    case states.gameover:
         if (floor(captain_index) == (sprite_get_number(captain_sprite) - 1))
             instance_destroy()
         break

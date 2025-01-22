@@ -2,14 +2,14 @@ if (phase == 0 && attacking)
 {
     if (state == (230 << 0))
     {
-        if (other.state == (84 << 0) && other.parry_inst != -4)
+        if (other.state == states.backbreaker && other.parry_inst != -4)
         {
-            state = (0 << 0)
+            state = states.normal
             self.boss_hurt(10, other.id)
             stunned = 50
             with (other)
             {
-                state = (147 << 0)
+                state = states.parry_
                 sprite_index = choose(spr_parry1, spr_parry2, spr_parry3)
                 image_index = 0
                 image_speed = 0.35
@@ -59,13 +59,13 @@ if (phase == 0 && attacking)
         }
         else
         {
-            state = (0 << 0)
+            state = states.normal
             self.player_hurt(20, other.id)
         }
     }
     else
     {
-        state = (0 << 0)
+        state = states.normal
         self.player_hurt(20, other.id)
     }
 }

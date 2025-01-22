@@ -10,41 +10,41 @@ else if (elitehit <= 6)
     attackpool = [(130 << 0)]
 switch state
 {
-    case (134 << 0):
+    case states.walk:
         scr_noise_walk()
         break
-    case (92 << 0):
+    case states.jump:
         scr_noise_jump()
         break
-    case (80 << 0):
+    case states.punch:
         scr_noise_punch()
         break
-    case (174 << 0):
+    case states.shield:
         scr_noise_shield()
         break
-    case (72 << 0):
+    case states.pistol:
         scr_noise_pistol()
         break
-    case (137 << 0):
+    case states.hit:
         scr_enemy_hit()
         break
-    case (138 << 0):
+    case states.stun:
         scr_enemy_stun()
         break
-    case (4 << 0):
+    case states.grabbed:
         scr_enemy_grabbed()
         break
-    case (154 << 0):
+    case states.pummel:
         scr_enemy_pummel()
         break
-    case (155 << 0):
+    case states.staggered:
         scr_enemy_staggered()
         break
 }
 
-if (state != (108 << 0) && state != (111 << 0))
+if (state != states.freefall && state != states.freefallland)
     hit = false
-if (state == (138 << 0))
+if (state == states.stun)
 {
     movespeed = 0
     if thrown
@@ -64,13 +64,13 @@ if (state == (138 << 0))
 }
 else
     savedthrown = false
-if (state == (138 << 0) && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && birdcreated == false)
 {
     birdcreated = true
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state == (92 << 0) || (state == (174 << 0) && substate == (92 << 0)))
+if (state == states.jump || (state == states.shield && substate == states.jump))
 {
     use_collision = false
     x += hsp
@@ -80,17 +80,17 @@ if (state == (92 << 0) || (state == (174 << 0) && substate == (92 << 0)))
 }
 else
     use_collision = true
-if ((state == (72 << 0) && substate == (66 << 0)) || (state == (174 << 0) && substate == (174 << 0)) || (state == (134 << 0) && ((!placedtraps) || ((!obj_player1.brick) && (!instance_exists(obj_brickball))))) || state == (80 << 0) || state == (138 << 0) || (!use_collision))
+if ((state == states.pistol && substate == states.shotgun) || (state == states.shield && substate == states.shield) || (state == states.walk && ((!placedtraps) || ((!obj_player1.brick) && (!instance_exists(obj_brickball))))) || state == states.punch || state == states.stun || (!use_collision))
     invincible = true
 else
     invincible = false
-if (state != (138 << 0))
+if (state != states.stun)
     birdcreated = false
 if (flash == true && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed
-if (state != (4 << 0))
+if (state != states.grabbed)
     depth = 0
-if (state != (138 << 0))
+if (state != states.stun)
     thrown = false
 if (boundbox == false)
 {

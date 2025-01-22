@@ -128,12 +128,12 @@ function boss_hurt_noplayer(argument0) //boss_hurt_noplayer_gml_Object_obj_vigil
 
 function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_vigilantebossOLD_Create_0
 {
-    if ((!argument1.inv_frames) && (argument1.state != (84 << 0) || argument1.parry_inst == -4))
+    if ((!argument1.inv_frames) && (argument1.state != states.backbreaker || argument1.parry_inst == -4))
     {
         hitstate = state
         hithsp = hsp
         hitvsp = vsp
-        if (state != (82 << 0) || vsp < 0)
+        if (state != states.uppunch || vsp < 0)
         {
             self.SUPER_player_hurt(argument0, argument1)
             with (argument1)

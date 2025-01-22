@@ -67,7 +67,7 @@ function state_player_jump() //state_player_jump
                 scr_soundeffect(sfx_step)
                 sprite_index = spr_playerN_wallclingstart
                 image_index = 0
-                state = (109 << 0)
+                state = states.hang
                 xscale *= -1
                 vsp = 0
                 doublejump = false
@@ -116,7 +116,7 @@ function state_player_jump() //state_player_jump
             scr_soundeffect(sfx_jump)
             stompAnim = false
             vsp = -11
-            state = (92 << 0)
+            state = states.jump
             jumpAnim = true
             jumpstop = false
             freefallstart = 0
@@ -143,7 +143,7 @@ function state_player_jump() //state_player_jump
             if (sprite_index != spr_shotgunshoot)
                 image_index = 0
             input_buffer_secondjump = 0
-            state = (0 << 0)
+            state = states.normal
             jumpAnim = true
             jumpstop = false
             freefallstart = 0
@@ -219,7 +219,7 @@ function state_player_jump() //state_player_jump
         {
             sprite_index = spr_bodyslamstart
             image_index = 0
-            state = (108 << 0)
+            state = states.freefall
             vsp = -6
         }
         else
@@ -227,7 +227,7 @@ function state_player_jump() //state_player_jump
             scr_soundeffect(sfx_killingblow)
             sprite_index = spr_shotgunjump1
             image_index = 0
-            state = (108 << 0)
+            state = states.freefall
             vsp = -11
             with (instance_create((x + xscale * 30), (y + 60), obj_shotgunbullet))
             {
@@ -264,7 +264,7 @@ function state_player_jump() //state_player_jump
         scr_soundeffect(sfx_groundpound)
         image_index = 0
         sprite_index = spr_bodyslamland
-        state = (111 << 0)
+        state = states.freefallland
         with (obj_baddie)
         {
             if (shakestun && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0)
@@ -287,7 +287,7 @@ function state_player_jump() //state_player_jump
         suplexmove = true
         suplexdashsnd = audio_play_sound(sfx_suplexdash, 1, 0)
         sfx_gain(suplexdashsnd)
-        state = (42 << 0)
+        state = states.handstandjump
         movespeed = 5
     }
     if (key_shoot2 && shotgunAnim)
@@ -318,7 +318,7 @@ function state_player_jump() //state_player_jump
                 }
                 sprite_index = spr_mortthrow
                 image_index = 0
-                state = (72 << 0)
+                state = states.pistol
                 mort = true
                 with (obj_camera)
                 {
@@ -331,7 +331,7 @@ function state_player_jump() //state_player_jump
                 sprite_index = spr_pistolshot
                 image_index = 0
                 movespeed = 5
-                state = (42 << 0)
+                state = states.handstandjump
                 shoot = true
                 with (obj_camera)
                 {
@@ -369,7 +369,7 @@ function state_player_jump() //state_player_jump
             {
                 sprite_index = spr_mach1
                 image_index = 0
-                state = (104 << 0)
+                state = states.mach2
                 if (movespeed < 6)
                     movespeed = 6
             }
@@ -383,13 +383,13 @@ function state_player_jump() //state_player_jump
                     sprite_index = spr_mach1
                     image_index = 0
                     movespeed = 6
-                    state = (103 << 0)
+                    state = states.mach1
                 }
                 else
                 {
                     sprite_index = spr_crazyrun
                     movespeed = 20
-                    state = (121 << 0)
+                    state = states.mach3
                 }
             }
             if (key_shoot2 && (!instance_exists(dynamite_inst)))
@@ -398,7 +398,7 @@ function state_player_jump() //state_player_jump
                 image_index = 0
                 if (move == 0)
                     movespeed = 0
-                state = (2 << 0)
+                state = states.dynamite
                 with (instance_create(x, y, obj_dynamite))
                 {
                     image_xscale = other.xscale
@@ -415,7 +415,7 @@ function state_player_jump() //state_player_jump
                 sprite_index = spr_playerV_airrevolver
                 image_index = 0
                 vsp = -5
-                state = (1 << 0)
+                state = states.revolver
                 with (instance_create((x + xscale * 20), (y + 20), obj_shotgunbullet))
                 {
                     is_solid = false
@@ -435,13 +435,13 @@ function state_player_jump() //state_player_jump
                 image_index = 0
                 hsp = 0
                 vsp = 0
-                state = (99 << 0)
+                state = states.Sjumpprep
             }
             if (key_attack && (!pogochargeactive) && (!key_slap2) && pizzapepper == 0)
             {
                 sprite_index = spr_playerN_pogostart
                 image_index = 0
-                state = (58 << 0)
+                state = states.pogo
             }
             break
     }
@@ -461,7 +461,7 @@ function state_player_jump() //state_player_jump
     }
     if place_meeting(x, y, obj_solid)
     {
-        state = (100 << 0)
+        state = states.crouch
         landAnim = false
         crouchAnim = true
         image_index = 0
@@ -497,12 +497,12 @@ function state_pepperman_jump() //state_pepperman_jump
     }
     if (grounded && vsp > 0)
     {
-        state = (0 << 0)
+        state = states.normal
         instance_create(x, (y - 5), obj_landcloud)
     }
     if (key_down2 && (!grounded))
     {
-        state = (108 << 0)
+        state = states.freefall
         freefallsmash = 12
         vsp = 14
         sprite_index = spr_bodyslamfall
@@ -511,7 +511,7 @@ function state_pepperman_jump() //state_pepperman_jump
     {
         if (move != 0)
             xscale = move
-        state = (153 << 0)
+        state = states.shoulderbash
         sprite_index = spr_pepperman_shoulderstart
         image_index = 0
         scr_soundeffect(sfx_suplexdash)
@@ -530,7 +530,7 @@ function state_pepperman_jump() //state_pepperman_jump
         tauntstoredvsp = vsp
         tauntstoredsprite = sprite_index
         tauntstoredstate = state
-        state = (84 << 0)
+        state = states.backbreaker
         if (supercharged == true)
         {
             image_index = 0

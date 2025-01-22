@@ -1,4 +1,4 @@
-if ((other.state == (42 << 0) || other.state == (80 << 0)) && other.grounded == true)
+if ((other.state == states.handstandjump || other.state == states.punch) && other.grounded == true)
 {
     instance_create((x + obj_player1.xscale * 40), y, obj_punchdust)
     with (other)
@@ -7,12 +7,12 @@ if ((other.state == (42 << 0) || other.state == (80 << 0)) && other.grounded == 
         sprite_index = spr_haulingstart
         grabbingenemy = true
         baddiegrabbedID = other.id
-        state = (79 << 0)
+        state = states.grab
     }
     playerid = other.object_index
     grabbed = true
 }
-if (other.state == (104 << 0) || other.state == (121 << 0) || (other.state == (65 << 0) && grounded))
+if (other.state == states.mach2 || other.state == states.mach3 || (other.state == states.machroll && grounded))
 {
     create_particle(x, y, (9 << 0), 0)
     with (other)
@@ -21,7 +21,7 @@ if (other.state == (104 << 0) || other.state == (121 << 0) || (other.state == (6
         mask_index = spr_crouchmask
         x = other.x
         y = other.y
-        state = (113 << 0)
+        state = states.barrel
         sprite_index = spr_barrelroll
         movespeed = 12
     }

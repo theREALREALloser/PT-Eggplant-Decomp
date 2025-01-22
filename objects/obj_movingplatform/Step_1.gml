@@ -28,7 +28,7 @@ if active
     vsp = vmovespeed * vscale
     x += hsp
     y += vsp
-    with (instance_place(x, (y - 2 + abs(v_velocity)), obj_player))
+    with (instance_place(x, (y - (2 + abs(v_velocity))), obj_player))
     {
         var v = 0
         if (abs(other.vsp) > 2)

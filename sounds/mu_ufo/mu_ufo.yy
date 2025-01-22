@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_ufo",
-  "duration": 225.28726,
+  "duration": 225.287,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

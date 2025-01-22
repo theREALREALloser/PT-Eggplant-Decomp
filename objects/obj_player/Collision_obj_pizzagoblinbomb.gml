@@ -1,12 +1,12 @@
 if (!other.grabbable)
     return;
-if (state != (34 << 0))
+if (state != states.boxxedpepspin)
 {
-    if (state == (42 << 0) || state == (43 << 0) || state == (80 << 0))
+    if (state == states.handstandjump || state == states.lungeattack || state == states.punch)
     {
-        if (other.state == (0 << 0) && scr_transformationcheck() && (!cutscene) && state != (52 << 0) && (state == (42 << 0) || state == (80 << 0) || state == (43 << 0)))
+        if (other.state == states.normal && scr_transformationcheck() && (!cutscene) && state != states.bombgrab && (state == states.handstandjump || state == states.punch || state == states.lungeattack))
         {
-            state = (52 << 0)
+            state = states.bombgrab
             image_index = 0
             sprite_index = spr_haulingstart
             other.defused = true
@@ -14,7 +14,7 @@ if (state != (34 << 0))
             movespeed = 6
             with (other)
             {
-                state = (4 << 0)
+                state = states.grabbed
                 playerid = other.id
             }
             tv_push_prompt_once(tv_create_prompt("This is the bomb transformation text", (2 << 0), 2590, 3), "bombpep")

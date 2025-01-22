@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_hillbilly_idle",
     "path": "sprites/spr_hillbilly_idle/spr_hillbilly_idle.yy",

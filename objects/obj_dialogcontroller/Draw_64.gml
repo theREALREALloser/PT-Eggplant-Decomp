@@ -6,7 +6,7 @@ if (dialogsprite != -4)
 display_set_gui_size(_w, _h)
 draw_set_font(font2)
 var x1 = rpadding
-var y1 = _h - dialogheight + rpadding + padding * 2 + ds_h
+var y1 = _h - (dialogheight + rpadding + padding * 2 + ds_h)
 draw_rectangle_color(x1, y1, (_w - rpadding), (_h - rpadding), c_white, c_white, c_white, c_white, false)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)

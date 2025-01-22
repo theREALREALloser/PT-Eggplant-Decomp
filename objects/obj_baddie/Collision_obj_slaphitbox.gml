@@ -7,7 +7,7 @@ with (obj_player)
         heavy = true
     else
         heavy = false
-    state = (79 << 0)
+    state = states.grab
 }
-state = (4 << 0)
+state = states.grabbed
 instance_destroy(other)

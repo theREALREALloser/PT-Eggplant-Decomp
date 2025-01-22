@@ -1,14 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tile_waroutside",
-  "textureGroupId": {
-    "name": "wargroup",
-    "path": "texturegroups/wargroup"
-  },
   "spriteId": {
-    "name": "tilespr_tile_waroutside",
-    "path": "sprites/tilespr_tile_waroutside/tilespr_tile_waroutside.yy"
+    "name": "tile_waroutside_sprite",
+    "path": "sprites/tile_waroutside_sprite/tile_waroutside_sprite.yy"
   },
   "tileWidth": 32,
   "tileHeight": 32,
@@ -16,14 +9,18 @@
   "tileyoff": 2,
   "tilehsep": 4,
   "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "wargroup",
+    "path": "texturegroups/wargroup"
+  },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
-  "spriteNoExport": true,
   "out_columns": 25,
   "tile_count": 610,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.000150001500014,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -640,6 +637,7 @@
     "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
     "TileSerialiseData": []
@@ -647,5 +645,9 @@
   "parent": {
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy"
-  }
+  },
+  "resourceVersion": "1.0",
+  "name": "tile_waroutside",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

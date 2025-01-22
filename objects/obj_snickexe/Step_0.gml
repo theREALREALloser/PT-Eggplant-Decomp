@@ -4,7 +4,7 @@ if (x != obj_player.x)
     image_xscale = (-(sign(x - obj_player.x)))
 if (global.snickchallenge == false)
     instance_destroy()
-if (hitboxcreate == false && obj_player1.instakillmove == false && obj_player1.state != (42 << 0))
+if (hitboxcreate == false && obj_player1.instakillmove == false && obj_player1.state != states.handstandjump)
 {
     hitboxcreate = true
     with (instance_create(x, y, obj_forkhitbox))
@@ -13,11 +13,11 @@ if (hitboxcreate == false && obj_player1.instakillmove == false && obj_player1.s
         ID = other.id
     }
 }
-if (place_meeting(x, y, obj_player1) && (obj_player1.instakillmove == true || obj_player1.state == (42 << 0)))
+if (place_meeting(x, y, obj_player1) && (obj_player1.instakillmove == true || obj_player1.state == states.handstandjump))
 {
     repeat (6)
     {
-        with (instance_create((x + (random_range(-100, 100))), (y + (random_range(-100, 100))), obj_balloonpop))
+        with (instance_create((x + (random_range(-100, 100))), (y + (random_range(-100, obj_text))), obj_balloonpop))
             sprite_index = spr_shotgunimpact
     }
     x = room_width / 2

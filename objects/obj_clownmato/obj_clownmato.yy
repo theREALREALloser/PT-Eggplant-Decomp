@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_clownmato_mask",
     "path": "sprites/spr_clownmato_mask/spr_clownmato_mask.yy",

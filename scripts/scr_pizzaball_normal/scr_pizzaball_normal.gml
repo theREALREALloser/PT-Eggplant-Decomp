@@ -103,6 +103,6 @@ function scr_pizzaball_normal() //scr_pizzaball_normal
 function scr_pizzaball_roll() //scr_pizzaball_roll
 {
     kicked = false
-    state = (0 << 0)
+    state = states.normal
 }
 

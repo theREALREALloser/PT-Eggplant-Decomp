@@ -1,5 +1,5 @@
 targetplayer = (global.coop ? instance_nearest(x, y, obj_player) : obj_player1)
-if (obj_bosscontroller.state == (144 << 0))
+if (obj_bosscontroller.state == states.arenaintro)
     return;
 if (hp <= 0 && state != (145 << 0) && state != (162 << 0))
 {
@@ -11,13 +11,13 @@ if (knightbuffer > 0)
     knightbuffer--
 switch phase
 {
-    case 0:
+    case states.normal:
         normal_func = boss_pizzaface_phase1normal
         break
-    case 1:
+    case states.revolver:
         normal_func = boss_pizzahead_phase2normal
         break
-    case 2:
+    case states.dynamite:
         normal_func = boss_pizzahead_phase3normal
         break
 }
@@ -27,7 +27,7 @@ switch state
     case (145 << 0):
         grav = 0.5
         break
-    case (0 << 0):
+    case states.normal:
         grav = 0.5
         self.normal_func()
         break
@@ -105,35 +105,35 @@ switch state
     case (249 << 0):
         self.boss_pizzahead_slamhead2()
         break
-    case (134 << 0):
+    case states.walk:
         grav = 0.5
         if grounded
-            state = (0 << 0)
+            state = states.normal
         invincible = true
         inv_timer = 2
         break
-    case (61 << 0):
+    case states.chainsaw:
         grav = 0.5
         state_boss_chainsaw()
         break
-    case (84 << 0):
+    case states.backbreaker:
         grav = 0.5
         state_boss_taunt()
         invincible = true
         inv_timer = 2
         break
-    case (147 << 0):
+    case states.parry_:
         grav = 0.5
         state_boss_parry()
         invincible = true
         inv_timer = 2
         break
-    case (137 << 0):
+    case states.hit:
         grav = 0.5
         scr_enemy_hit()
         stunned = 30
         break
-    case (138 << 0):
+    case states.stun:
         grav = 0.5
         state_boss_stun()
         break

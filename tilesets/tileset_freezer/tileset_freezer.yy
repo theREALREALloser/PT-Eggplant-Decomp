@@ -1,14 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tileset_freezer",
-  "textureGroupId": {
-    "name": "freezergroup",
-    "path": "texturegroups/freezergroup"
-  },
   "spriteId": {
-    "name": "tilespr_tileset_freezer",
-    "path": "sprites/tilespr_tileset_freezer/tilespr_tileset_freezer.yy"
+    "name": "tileset_freezer_sprite",
+    "path": "sprites/tileset_freezer_sprite/tileset_freezer_sprite.yy"
   },
   "tileWidth": 32,
   "tileHeight": 32,
@@ -16,14 +9,18 @@
   "tileyoff": 2,
   "tilehsep": 4,
   "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "freezergroup",
+    "path": "texturegroups/freezergroup"
+  },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
-  "spriteNoExport": true,
   "out_columns": 29,
   "tile_count": 820,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.000150001500014,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -850,6 +847,7 @@
     "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
     "TileSerialiseData": []
@@ -857,5 +855,9 @@
   "parent": {
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy"
-  }
+  },
+  "resourceVersion": "1.0",
+  "name": "tileset_freezer",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

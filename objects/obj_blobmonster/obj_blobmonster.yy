@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_monstercheese_idle",
     "path": "sprites/spr_monstercheese_idle/spr_monstercheese_idle.yy",
@@ -18,7 +18,7 @@
     "name": "obj_robotmonster",
     "path": "objects/obj_robotmonster/obj_robotmonster.yy",
   },
-  "physicsObject": false,
+  "physicsObject": true,
   "physicsSensor": false,
   "physicsShape": 1,
   "physicsGroup": 1,

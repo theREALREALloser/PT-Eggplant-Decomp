@@ -1,4 +1,4 @@
-if (state == (148 << 0))
+if (state == states.golf)
     return;
 create_particle(x, y, (6 << 0), 0)
 vsp = -14

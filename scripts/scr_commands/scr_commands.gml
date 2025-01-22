@@ -19,10 +19,10 @@ function scr_undo_command() //scr_undo_command
     if (!ds_list_empty(commandlist))
     {
         var b = ds_list_find_value(commandlist, (ds_list_size(commandlist) - undo))
-        if (b.state == 1)
+        if (b.state == states.revolver)
         {
             b.Undo()
-            b.state = 0
+            b.state = states.normal
         }
         if (undo < ds_list_size(commandlist))
             undo++
@@ -34,10 +34,10 @@ function scr_redo_command() //scr_redo_command
     if (!ds_list_empty(commandlist))
     {
         var b = ds_list_find_value(commandlist, (ds_list_size(commandlist) - undo))
-        if (b.state == 0)
+        if (b.state == states.normal)
         {
             b.Do()
-            b.state = 1
+            b.state = states.revolver
         }
         if (undo > 1)
             undo--

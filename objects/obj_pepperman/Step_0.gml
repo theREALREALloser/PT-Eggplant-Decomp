@@ -5,36 +5,36 @@ targetblock = instance_nearest(x, y, obj_pepper_marbleblock)
 wastedhits = 8 - elitehit
 switch state
 {
-    case (134 << 0):
+    case states.walk:
         scr_pepperman_walk()
         break
-    case (153 << 0):
+    case states.shoulderbash:
         scr_pepperman_shoulderbash()
         break
-    case (92 << 0):
+    case states.jump:
         scr_pepperman_jump()
         break
-    case (108 << 0):
+    case states.freefall:
         scr_pepperman_freefall()
         break
-    case (137 << 0):
+    case states.hit:
         scr_enemy_hit()
         break
-    case (138 << 0):
+    case states.stun:
         scr_enemy_stun()
         break
-    case (4 << 0):
+    case states.grabbed:
         scr_enemy_grabbed()
         break
-    case (154 << 0):
+    case states.pummel:
         scr_enemy_pummel()
         break
-    case (155 << 0):
+    case states.staggered:
         scr_enemy_staggered()
         break
 }
 
-if (state == (138 << 0))
+if (state == states.stun)
 {
     if thrown
         savedthrown = true
@@ -46,13 +46,13 @@ if (state == (138 << 0))
 }
 else
     savedthrown = false
-if (state == (138 << 0) && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && birdcreated == false)
 {
     birdcreated = true
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state == (92 << 0))
+if (state == states.jump)
 {
     use_collision = false
     x += hsp
@@ -62,17 +62,17 @@ if (state == (92 << 0))
 }
 else
     use_collision = true
-if (state == (138 << 0) || state == (153 << 0) || (!use_collision) || elitehit <= 1)
+if (state == states.stun || state == states.shoulderbash || (!use_collision) || elitehit <= 1)
     invincible = true
 else
     invincible = false
-if (state != (138 << 0))
+if (state != states.stun)
     birdcreated = false
 if (flash == true && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed
-if (state != (4 << 0))
+if (state != states.grabbed)
     depth = 0
-if (state != (138 << 0))
+if (state != states.stun)
     thrown = false
 if (boundbox == false)
 {

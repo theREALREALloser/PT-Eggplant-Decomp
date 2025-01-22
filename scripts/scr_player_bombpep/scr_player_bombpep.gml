@@ -36,7 +36,7 @@ function scr_player_bombgrab() //scr_player_bombgrab
     else
         movespeed = 0
     if (!instance_exists(bombgrabID))
-        state = (0 << 0)
+        state = states.normal
     if (sprite_index != spr_haulingstart && sprite_index != spr_uppercutfinishingblow && sprite_index != spr_player_throw)
     {
         if grounded
@@ -64,7 +64,7 @@ function scr_player_bombgrab() //scr_player_bombgrab
                 image_index = 3
                 with (bombgrabID)
                 {
-                    state = (0 << 0)
+                    state = states.normal
                     vsp = -20
                     hsp = 0
                 }
@@ -74,7 +74,7 @@ function scr_player_bombgrab() //scr_player_bombgrab
                 sprite_index = spr_player_throw
                 with (bombgrabID)
                 {
-                    state = (0 << 0)
+                    state = states.normal
                     movespeed = 9
                     vsp = -11
                 }
@@ -96,16 +96,16 @@ function scr_player_bombgrab() //scr_player_bombgrab
         {
             if grounded
             {
-                state = (0 << 0)
+                state = states.normal
                 with (bombgrabID)
-                    state = (0 << 0)
+                    state = states.normal
             }
         }
     }
     else if (sprite_index != spr_haulingstart)
     {
         if (floor(image_index) == (image_number - 1))
-            state = (0 << 0)
+            state = states.normal
     }
 }
 
@@ -147,12 +147,12 @@ function scr_player_bombpepup() //scr_player_bombpepup
         }
         scr_soundeffect(sfx_groundpound)
         image_index = 0
-        state = (123 << 0)
+        state = states.Sjumpland
         machhitAnim = false
     }
     if (bombup_dir == 1 && scr_solid(x, (y + 1)) && (!(place_meeting(x, (y + 1), obj_destructibles))))
     {
-        state = (111 << 0)
+        state = states.freefallland
         sprite_index = spr_bodyslamland
         image_index = 0
         with (obj_camera)
@@ -214,7 +214,7 @@ function scr_player_bombpepside() //scr_player_bombpepside
             }
         }
         flash = false
-        state = (106 << 0)
+        state = states.bump
         hsp = -2.5
         vsp = -3
         mach2 = 0
@@ -266,7 +266,7 @@ function scr_player_bombpep() //scr_player_bombpep
         alarm[5] = 2
         alarm[7] = 60
         hurted = true
-        state = (0 << 0)
+        state = states.normal
         sprite_index = spr_idle
         image_index = 0
     }
@@ -285,13 +285,13 @@ function scr_player_bombpep() //scr_player_bombpep
     {
         instance_create((x + 10), (y + 10), obj_bumpeffect)
         xscale *= -1
-        GamepadSetVibration((object_index == obj_player1 ? 0 : 1), 0.2, 0.2, 0.4)
+        GamepadSetVibration((object_index == obj_player1 ? 0 : 1), 0.2, 0.4)
     }
     if (scr_solid((x - 1), y) && xscale == -1 && hsp != 0 && ((!(place_meeting((x + sign(hsp)), y, obj_slope))) || scr_solid_slope((x + sign(hsp)), y)))
     {
         instance_create((x - 10), (y + 10), obj_bumpeffect)
         xscale *= -1
-        GamepadSetVibration((object_index == obj_player1 ? 0 : 1), 0.2, 0.2, 0.4)
+        GamepadSetVibration((object_index == obj_player1 ? 0 : 1), 0.2, 0.4)
     }
     if (input_buffer_jump < 8 && grounded && hsp != 0)
         vsp = -11
@@ -305,14 +305,14 @@ function scr_player_bombpep() //scr_player_bombpep
         steppy = true
     if (floor(image_index) != 0 && floor(image_index) != 2)
         steppy = false
-    if (key_slap2 && state != (0 << 0) && sprite_index != spr_bombpepintro && sprite_index != spr_bombpepend)
+    if (key_slap2 && state != states.normal && sprite_index != spr_bombpepintro && sprite_index != spr_bombpepend)
     {
         sprite_index = spr_player_throw
         image_index = 0
         hsp = 0
         bombpeptimer = 0
         movespeed = 0
-        state = (84 << 0)
+        state = states.backbreaker
         with (instance_create((x + xscale * 50), y, obj_pizzagoblinbomb))
         {
             hsp = other.xscale * 8

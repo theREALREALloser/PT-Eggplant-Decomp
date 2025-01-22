@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_mrstick_mask",
     "path": "sprites/spr_mrstick_mask/spr_mrstick_mask.yy",

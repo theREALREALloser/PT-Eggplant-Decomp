@@ -10,7 +10,7 @@ if global.use_temperature
     var _width = sprite_get_width(spr_temperature_meterfill)
     var _height = sprite_get_height(spr_temperature_meterfill)
     global.temperature = clamp(global.temperature, 0, (global.temp_thresholdnumber * 100))
-    var _tmp = global.temperature / global.temp_thresholdnumber * 100
+    var _tmp = global.temperature / (global.temp_thresholdnumber * 100)
     var _top = 0
     var _height2 = _height * _tmp
     draw_sprite_part_ext(spr_temperature_meterfill, 0, 0, _top, _width, _height2, 864, (192 + _height), 1, -1, c_white, 1)

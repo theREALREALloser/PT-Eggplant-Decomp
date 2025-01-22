@@ -18,7 +18,7 @@ if (round_timer <= 0)
         {
             targetDoor = "A"
             room = timesuproom
-            state = (64 << 0)
+            state = states.timesup
             sprite_index = spr_Timesup
             image_index = 0
             audio_stop_all()
@@ -36,6 +36,6 @@ if ((!instance_exists(bossID)) && (!bossdead))
         sprite_index = spr_player_levelcomplete
         image_speed = 0.35
         image_index = 0
-        state = (144 << 0)
+        state = states.arenaintro
     }
 }

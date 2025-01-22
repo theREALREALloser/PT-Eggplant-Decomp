@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_war.mp3",
-  "duration": 268.27756,
+  "duration": 268.277,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

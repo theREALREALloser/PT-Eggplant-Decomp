@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_desert",
-  "duration": 146.88654,
+  "duration": 146.886,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

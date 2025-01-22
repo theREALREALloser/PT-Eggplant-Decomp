@@ -12,7 +12,7 @@ if pause
         yy = 96 + pad * i
         if (selected == i)
         {
-            c = 16777215
+            c = c_white
             draw_sprite(spr_cursor, cursor_index, (xx - 48), (yy + cursor_sprite_height / 2))
         }
         draw_text_color(xx, yy, pause_menu[i], c, c, c, c, 1)

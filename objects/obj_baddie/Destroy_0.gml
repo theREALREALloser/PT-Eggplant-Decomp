@@ -56,7 +56,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
         global.heatmeter_count++
     if ((!elite) || elitehit <= 0)
     {
-        var combototal = 10 + (round(10 * global.combo * 0.5))
+        var combototal = 10 + (round(10 * (global.combo * 0.5)))
         global.collect += combototal
         global.comboscore += combototal
     }

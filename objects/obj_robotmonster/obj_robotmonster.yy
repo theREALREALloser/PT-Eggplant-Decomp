@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_monstershroom_idle",
     "path": "sprites/spr_monstershroom_idle/spr_monstershroom_idle.yy",

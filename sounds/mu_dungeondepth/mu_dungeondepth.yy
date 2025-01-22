@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_dungeondepth",
-  "duration": 51.48,
+  "duration": 51.479,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

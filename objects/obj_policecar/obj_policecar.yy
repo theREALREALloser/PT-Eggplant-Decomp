@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_policecar",
     "path": "sprites/spr_policecar/spr_policecar.yy",

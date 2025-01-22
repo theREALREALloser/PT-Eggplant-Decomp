@@ -6,12 +6,12 @@ function cutscene_taxi_end(argument0, argument1) //cutscene_taxi_end
     {
         var handler = other
         cutscene = true
-        state = (146 << 0)
-        if (grounded && state != (107 << 0))
+        state = states.actor
+        if (grounded && state != states.hurt)
         {
             hsp = 0
             vsp = 0
-            with (instance_create((x - 1000), y, obj_taxicutscene))
+            with (instance_create((x - 1000), y, obj_taxi_cutscene))
             {
                 targetplayer = player
                 depth = -127

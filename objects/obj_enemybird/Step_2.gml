@@ -1,2 +1,2 @@
-if ((!instance_exists(ID)) || ID.state != (138 << 0))
+if ((!instance_exists(ID)) || ID.state != states.stun)
     instance_destroy()

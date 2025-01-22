@@ -8,7 +8,7 @@
   },
   "solid": true,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

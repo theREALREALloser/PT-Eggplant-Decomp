@@ -1,10 +1,10 @@
-if (state != (217 << 0) && other.state != (146 << 0) && (!other.cutscene) && other.state != (112 << 0))
+if (state != (217 << 0) && other.state != states.actor && (!other.cutscene) && other.state != states.door)
 {
     if ((!global.panic) && (!instance_exists(obj_jumpscare)))
     {
         with (obj_player)
         {
-            state = (146 << 0)
+            state = states.actor
             hsp = 0
             vsp = 0
             targetRoom = other.targetRoom

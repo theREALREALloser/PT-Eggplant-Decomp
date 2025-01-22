@@ -1,6 +1,6 @@
 if (room == rm_editor)
     return;
-if (obj_player.state != (107 << 0) && global.tomatofollow == false)
+if (obj_player.state != states.hurt && global.tomatofollow == false)
 {
     global.heattime = 60
     global.style += 10

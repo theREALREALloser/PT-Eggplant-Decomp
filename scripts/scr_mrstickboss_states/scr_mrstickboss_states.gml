@@ -7,7 +7,7 @@ function boss_mrstick_decide_attack() //boss_mrstick_decide_attack
         state = attack_pool[irandom(array_length(attack_pool) - 1)]
         switch state
         {
-            case (174 << 0):
+            case states.shield:
                 movespeed = 0
                 hsp = 0
                 shield_buffer = shield_max
@@ -31,7 +31,7 @@ function boss_mrstick_decide_attack() //boss_mrstick_decide_attack
                 movespeed = 10
                 target_x = (x > (room_width / 2) ? (room_width / 7) : (room_width - room_width / 7))
                 break
-            case (92 << 0):
+            case states.jump:
                 image_xscale = (x > (room_width / 2) ? 1 : -1)
                 movespeed = 12
                 vsp = -11
@@ -126,7 +126,7 @@ function boss_mrstick_shield() //boss_mrstick_shield
     if (shield_buffer > 0)
         shield_buffer--
     else
-        state = (0 << 0)
+        state = states.normal
 }
 
 function boss_mrstick_helicopterhat() //boss_mrstick_helicopterhat
@@ -157,7 +157,7 @@ function boss_mrstick_helicopterhat() //boss_mrstick_helicopterhat
             image_xscale = (x > (room_width / 2) ? -1 : 1)
             vsp = 5
             if grounded
-                state = (0 << 0)
+                state = states.normal
             break
     }
 
@@ -173,7 +173,7 @@ function boss_mrstick_panicjump() //boss_mrstick_panicjump
         sprite_index = spr_mrstick_fall
     }
     if (x > (target_x - 16) && x < (target_x + 16))
-        state = (0 << 0)
+        state = states.normal
     if grounded
     {
         if (movespeed < panicjumpspeed)
@@ -219,7 +219,7 @@ function boss_mrstick_jump() //boss_mrstick_jump
         if (y > (room_height + sprite_height))
             y = room_height / 4
         if (scr_solid(x, (y + vsp)) && (!(scr_solid(x, y))))
-            state = (0 << 0)
+            state = states.normal
     }
     if (vsp < 20)
         vsp += grav
@@ -252,7 +252,7 @@ function boss_mrstick_smokebombcrawl() //boss_mrstick_smokebombcrawl
     hsp = image_xscale * movespeed
     if (x > (target_x - 16) && x < (target_x + 16))
     {
-        state = (0 << 0)
+        state = states.normal
         movespeed = 6
     }
 }
@@ -272,7 +272,7 @@ function boss_mrstick_springshoes() //boss_mrstick_springshoes
     {
         hsp = 0
         movespeed = 0
-        state = (138 << 0)
+        state = states.stun
         stunned = 100
         sprite_index = spr_mrstick_hurt
         with (obj_camera)
@@ -308,7 +308,7 @@ function boss_mrstick_cardboardend() //boss_mrstick_cardboardend
     hsp = image_xscale * movespeed
     if (scr_solid(x, (y + vsp)) && (!(scr_solid(x, y))))
     {
-        state = (0 << 0)
+        state = states.normal
         instance_destroy(obj_spike)
     }
     if (vsp < 20)
@@ -322,6 +322,6 @@ function boss_mrstick_mockery() //boss_mrstick_mockery
     if (mockery_buffer > 0)
         mockery_buffer--
     else
-        state = (0 << 0)
+        state = states.normal
 }
 

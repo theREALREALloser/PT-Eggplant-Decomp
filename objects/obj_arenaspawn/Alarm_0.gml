@@ -13,10 +13,10 @@ if (state != (145 << 0))
             wave_seconds = 0
             with (obj_player1)
             {
-                if (state != (7 << 0))
+                if (state != states.ejected)
                 {
                     vsp = -11
-                    state = (7 << 0)
+                    state = states.ejected
                     targetRoom = lastroom
                 }
             }

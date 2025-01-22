@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_kingghost_pinball",
     "path": "sprites/spr_kingghost_pinball/spr_kingghost_pinball.yy",

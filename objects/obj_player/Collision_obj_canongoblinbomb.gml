@@ -1,4 +1,4 @@
-if (hurted == false && other.grounded == false && state != (84 << 0) && state != (147 << 0))
+if (hurted == false && other.grounded == false && state != states.backbreaker && state != states.parry_)
 {
     instance_destroy(other)
     instance_create(x, y, obj_canonexplosion)

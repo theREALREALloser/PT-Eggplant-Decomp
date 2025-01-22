@@ -7,7 +7,7 @@ if (sprite_index == spr_gustavoswitch2 && floor(image_index) == (image_number - 
         ratmount_movespeed = 8
         gustavodash = 0
         isgustavo = true
-        state = (191 << 0)
+        state = states.ratmount
         brick = true
         x = obj_gustavoswitch.x
         y = obj_gustavoswitch.y

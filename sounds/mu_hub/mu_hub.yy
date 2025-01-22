@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_hub",
-  "duration": 157.93633,
+  "duration": 157.936,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

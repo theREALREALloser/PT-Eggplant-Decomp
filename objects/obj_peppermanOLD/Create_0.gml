@@ -83,7 +83,7 @@ function player_destroy(argument0) //player_destroy_gml_Object_obj_peppermanOLD_
 
 function boss_destroy(argument0) //boss_destroy_gml_Object_obj_peppermanOLD_Create_0
 {
-    hitstate = (0 << 0)
+    hitstate = states.normal
     self.SUPER_boss_destroy(argument0)
     with (obj_peppermanbrick)
         instance_destroy()
@@ -124,23 +124,23 @@ function boss_hurt_noplayer(argument0) //boss_hurt_noplayer_gml_Object_obj_peppe
 
 function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_peppermanOLD_Create_0
 {
-    if (argument1.state != (84 << 0) || argument1.parry_inst == -4)
+    if (argument1.state != states.backbreaker || argument1.parry_inst == -4)
     {
         var _prevstate = state
         self.SUPER_player_hurt(argument0, argument1)
-        if (_prevstate == (153 << 0) || _prevstate == (157 << 0) || _prevstate == (83 << 0) || _prevstate == (76 << 0))
+        if (_prevstate == states.shoulderbash || _prevstate == (157 << 0) || _prevstate == states.shoulder || _prevstate == states.superslam)
         {
             with (obj_camera)
             {
                 shake_mag = 3
                 shake_mag_acc = 3 / room_speed
             }
-            hitstate = (138 << 0)
+            hitstate = states.stun
             stunned = 70
             hitvsp = -4
             hithsp = (-image_xscale) * 8
         }
-        else if (_prevstate == (84 << 0))
+        else if (_prevstate == states.backbreaker)
         {
             with (obj_camera)
             {
@@ -149,7 +149,7 @@ function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_pepperma
             }
             sprite_index = spr_pepperman_throw
             image_index = 0
-            hitstate = (147 << 0)
+            hitstate = states.parry_
             hitvsp = 0
             hithsp = 0
             movespeed = 8
@@ -158,19 +158,19 @@ function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_pepperma
         {
             hithsp = 0
             hitvsp = -4
-            hitstate = (0 << 0)
+            hitstate = states.normal
         }
     }
-    else if (state == (76 << 0))
+    else if (state == states.superslam)
     {
         with (argument1)
         {
-            if (state == (137 << 0) || state == (61 << 0))
+            if (state == states.hit || state == states.chainsaw)
             {
                 x = hitX
                 y = hitY
             }
-            if (other.state == (137 << 0) || other.state == (61 << 0))
+            if (other.state == states.hit || other.state == states.chainsaw)
             {
                 other.x = hitX
                 other.y = hitY

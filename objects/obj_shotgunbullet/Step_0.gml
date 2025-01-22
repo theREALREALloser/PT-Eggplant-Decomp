@@ -10,7 +10,7 @@ if (shotgun == true)
     with (instance_place(x, (y - spdh), obj_shotgunblock))
         instance_destroy()
 }
-if (brick == 1 && instance_exists(brickid))
+if (brick == true && instance_exists(brickid))
 {
     x = brickid.x
     y = brickid.y

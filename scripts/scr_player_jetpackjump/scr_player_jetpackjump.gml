@@ -4,7 +4,7 @@ function scr_player_jetpackjump() //scr_player_jetpackjump
     alarm[7] = 60
     landAnim = false
     if (grounded && vsp > 0 && (!(place_meeting(x, (y + vsp), obj_destructibles))) && (!(place_meeting(x, (y + vsp), obj_iceblock_breakable))))
-        state = (0 << 0)
+        state = states.normal
     with (obj_iceblock_breakable)
     {
         if (place_meeting((x - other.hsp), y, other) || place_meeting((x - other.xscale), y, other) || place_meeting(x, (y - other.vsp), other))

@@ -54,10 +54,10 @@ function create_heatpuff(argument0, argument1) //create_heatpuff
     return q;
 }
 
-function create_collect(argument0, argument1, argument2)
+function create_collect(argument0, argument1, argument2) //create_collect
 {
-    argument0 -= camera_get_view_x(view_camera[0]);
-    argument1 -= camera_get_view_y(view_camera[0]);
+    argument0 -= camera_get_view_x(view_camera[0])
+    argument1 -= camera_get_view_y(view_camera[0])
     var q = 
     {
         x: argument0,
@@ -67,8 +67,9 @@ function create_collect(argument0, argument1, argument2)
         image_number: sprite_get_number(argument2),
         hsp: 0,
         vsp: 0
-    };
-    ds_list_add(global.collect_list, q);
+    }
+
+    ds_list_add(global.collect_list, q)
     return q;
 }
 

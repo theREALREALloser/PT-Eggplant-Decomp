@@ -90,7 +90,7 @@ global.chateauswap = -4
 global.warcutscene = -4
 pal_swap_init_system(shd_pal_swapper)
 with (obj_player1)
-    state = (0 << 0)
+    state = states.normal
 global.loadeditor = false
 room_goto(hub_loadingscreen)
 instance_destroy(obj_cutscene_handler)

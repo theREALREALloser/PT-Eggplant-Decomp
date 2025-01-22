@@ -5,6 +5,6 @@ with (obj_player1)
     sprite_index = spr_player_haulingstart
     heavy = true
     baddiegrabbedID = other.id
-    state = (79 << 0)
+    state = states.grab
 }
 grabbed = true

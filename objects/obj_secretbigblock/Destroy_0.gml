@@ -12,7 +12,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     }
     repeat (3)
     {
-        with (instance_create((x + (random_range(0, 64))), (y + (random_range(0, 64))), obj_parryeffect))
+        with (instance_create((x + (random_range(0, 64))), (y + (random_range(0, obj_secretportal))), obj_parryeffect))
         {
             sprite_index = spr_deadjohnsmoke
             image_speed = 0.35

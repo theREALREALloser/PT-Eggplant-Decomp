@@ -1,4 +1,4 @@
-if (state == (148 << 0))
+if (state == states.golf)
     return;
 x = other.x
 kicked = false

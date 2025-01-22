@@ -8,7 +8,7 @@ if bossID.playerdestroyed
     return;
 switch state
 {
-    case (144 << 0):
+    case states.arenaintro:
         draw_sprite_tiled(spr_versusflame, -1, 0, flamey)
         var sprplayer = (playerx != 0 ? playersprshadow : playerspr)
         var sprboss = (playerx != 0 ? bosssprshadow : bossspr)

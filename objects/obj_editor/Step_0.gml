@@ -3,7 +3,7 @@ scr_editor_camera_update()
 scr_editor_update_buttons()
 switch state
 {
-    case 0:
+    case states.normal:
         scr_editor_state_objects()
         break
 }

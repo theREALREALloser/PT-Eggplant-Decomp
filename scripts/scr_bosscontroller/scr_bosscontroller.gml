@@ -32,7 +32,7 @@ function mrstick_start_round() //mrstick_start_round
                 create_particle(x, y, (9 << 0), 0)
                 important = false
                 phase = b[1]
-                state = (138 << 0)
+                state = states.stun
                 stunned = 50
             }
         }

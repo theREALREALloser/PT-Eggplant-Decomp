@@ -5,7 +5,7 @@ if (!fakedeath)
     {
         if (object_index == obj_player1 || global.coop)
         {
-            state = (0 << 0)
+            state = states.normal
             targetDoor = "A"
         }
     }

@@ -18,7 +18,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
             vsp = random_range(-10, 10)
         }
     }
-    var combototal = 10 + (round(10 * global.combo * 0.5))
+    var combototal = 10 + (round(10 * (global.combo * 0.5)))
     global.collect += combototal
     global.comboscore += combototal
     instance_create(x1, y1, obj_bangeffect)

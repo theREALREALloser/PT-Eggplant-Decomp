@@ -16,7 +16,7 @@ function scr_player_crouchjump() //scr_player_crouchjump
     }
     if grounded
     {
-        state = (100 << 0)
+        state = states.crouch
         jumpAnim = true
         crouchAnim = true
         image_index = 0

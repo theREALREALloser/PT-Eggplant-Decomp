@@ -38,12 +38,12 @@ function scr_player_boxxedpep() //scr_player_boxxedpep
     {
         instance_create(x, y, obj_highjumpcloud2)
         vsp = (-boxxedpepjump)
-        state = (35 << 0)
+        state = states.boxxedpepjump
         sprite_index = spr_boxxedpep_flap
         image_index = 0
         repeat (7)
         {
-            with (instance_create((x + (random_range(-50, 50))), (y + (random_range(0, 50))), obj_highjumpcloud2))
+            with (instance_create((x + (random_range(-50, 50))), (y + (random_range(0, obj_farmer2))), obj_highjumpcloud2))
             {
                 vspeed = 2
                 sprite_index = spr_cloudeffect
@@ -93,13 +93,13 @@ function scr_player_boxxedpep() //scr_player_boxxedpep
             else
             {
                 sprite_index = spr_boxxedpepair
-                state = (35 << 0)
+                state = states.boxxedpepjump
             }
         }
     }
     if key_slap2
     {
-        state = (34 << 0)
+        state = states.boxxedpepspin
         sprite_index = spr_boxxedpep_spin
         image_index = 0
         vsp = -6

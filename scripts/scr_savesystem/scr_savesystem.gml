@@ -2,13 +2,13 @@ function gamesave_async_load() //gamesave_async_load
 {
     with (obj_savesystem)
     {
-        if (state == 0)
+        if (state == states.normal)
         {
             loadbuff = buffer_create(1, buffer_grow, 1)
             buffer_async_group_begin("saves")
             buffer_load_async(loadbuff, get_savefile_ini(), 0, -1)
             loadid = buffer_async_group_end()
-            state = 2
+            state = states.dynamite
         }
     }
 }
@@ -17,7 +17,7 @@ function gamesave_async_save() //gamesave_async_save
 {
     with (obj_savesystem)
     {
-        if (state == 0)
+        if (state == states.normal)
         {
             with (obj_achievementtracker)
             {

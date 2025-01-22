@@ -1,4 +1,4 @@
-if (other.instakillmove || other.state == (42 << 0))
+if (other.instakillmove || other.state == states.handstandjump)
 {
     with (other)
     {

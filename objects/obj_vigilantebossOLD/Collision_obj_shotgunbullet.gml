@@ -9,7 +9,7 @@ if (state == (160 << 0))
     hitstate = (160 << 0)
     if (hp <= 0)
     {
-        hitstate = (0 << 0)
+        hitstate = states.normal
         self.boss_destroy(lastplayerid)
         hitX = floor(room_width - room_width / 2.5)
         lastplayerid.hitX = floor(room_width / 2.5)

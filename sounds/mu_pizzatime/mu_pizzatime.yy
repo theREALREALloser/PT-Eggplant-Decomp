@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_pizzatime.mp3",
-  "duration": 232.67265,
+  "duration": 232.672,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

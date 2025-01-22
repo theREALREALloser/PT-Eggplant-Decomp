@@ -1,14 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tile_ufo_tileset",
-  "textureGroupId": {
-    "name": "desertgroup",
-    "path": "texturegroups/desertgroup"
-  },
   "spriteId": {
-    "name": "tilespr_tile_ufo_tileset",
-    "path": "sprites/tilespr_tile_ufo_tileset/tilespr_tile_ufo_tileset.yy"
+    "name": "tile_ufo_tileset_sprite",
+    "path": "sprites/tile_ufo_tileset_sprite/tile_ufo_tileset_sprite.yy"
   },
   "tileWidth": 32,
   "tileHeight": 32,
@@ -16,14 +9,18 @@
   "tileyoff": 2,
   "tilehsep": 4,
   "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "desertgroup",
+    "path": "texturegroups/desertgroup"
+  },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
-  "spriteNoExport": true,
   "out_columns": 27,
   "tile_count": 710,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.000150001500014,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -740,6 +737,7 @@
     "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
     "TileSerialiseData": []
@@ -747,5 +745,9 @@
   "parent": {
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy"
-  }
+  },
+  "resourceVersion": "1.0",
+  "name": "tile_ufo_tileset",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

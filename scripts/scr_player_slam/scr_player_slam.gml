@@ -24,7 +24,7 @@ function scr_player_slam() //scr_player_slam
     crouchslideAnim = true
     crouchAnim = true
     if (floor(image_index) == 8)
-        state = (0 << 0)
+        state = states.normal
     if (move != 0)
         xscale = move
     if (floor(image_index) == 3 && (!grounded))

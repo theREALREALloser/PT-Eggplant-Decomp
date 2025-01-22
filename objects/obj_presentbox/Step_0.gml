@@ -197,13 +197,13 @@ switch global.boxhp
 
 with (instance_place(x, y, obj_player))
 {
-    if ((state == (42 << 0) || state == (80 << 0) || state == (43 << 0)) && other.sprite_index != spr_present)
+    if ((state == states.handstandjump || state == states.punch || state == states.lungeattack) && other.sprite_index != spr_present)
     {
-        if (state == (42 << 0) || state == (80 << 0) || state == (43 << 0))
+        if (state == states.handstandjump || state == states.punch || state == states.lungeattack)
         {
             sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch)
             image_index = 0
-            state = (91 << 0)
+            state = states.tackle
             movespeed = 3
             vsp = -3
         }
@@ -420,7 +420,7 @@ if ((!instance_exists(obj_baddiespawner)) && global.boxhp == 10)
     {
         content = obj_noisey
         repeat (6)
-            instance_create((x + (random_range(-25, 25))), (y + (random_range(-25, 25))), obj_cloudeffect)
+            instance_create((x + (random_range(-25, 25))), (y + (random_range(-25, obj_piraneapple_spawn))), obj_cloudeffect)
     }
 }
 if (box == 1)

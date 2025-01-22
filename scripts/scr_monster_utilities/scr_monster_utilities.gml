@@ -37,7 +37,7 @@ function scr_monster_detect(argument0, argument1, argument2) //scr_monster_detec
         {
             with (argument2)
             {
-                if (state != (100 << 0) || ((!(scr_solid(x, (y - 24)))) && (!(place_meeting(x, (y - 24), obj_platform)))))
+                if (state != states.crouch || ((!(scr_solid(x, (y - 24)))) && (!(place_meeting(x, (y - 24), obj_platform)))))
                     detect = true
             }
         }
@@ -74,7 +74,7 @@ function scr_puppet_appear(argument0) //scr_puppet_appear
     x = argument0.x + abs(_xdir) * argument0.xscale
     y = argument0.y
     state = (220 << 0)
-    substate = (135 << 0)
+    substate = states.fall
     playerid = argument0
     while place_meeting(x, y, obj_solid)
     {
@@ -150,7 +150,7 @@ function scr_monster_detect_audio() //scr_monster_detect_audio
             targetplayer = instance_nearest(x, y, obj_player)
             if (object_index == obj_blobmonster)
             {
-                state = (135 << 0)
+                state = states.fall
                 gravdir *= -1
                 chase = false
             }

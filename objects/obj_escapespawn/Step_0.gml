@@ -1,6 +1,6 @@
 switch state
 {
-    case 0:
+    case states.normal:
         if (!global.panic)
         {
             visible = false
@@ -12,19 +12,19 @@ switch state
             }
         }
         else
-            state = 1
+            state = states.revolver
         break
-    case 1:
+    case states.revolver:
         var p = instance_nearest(x, y, obj_player)
         visible = false
         image_index = 0
         if distance_to_pos(x, y, p.x, p.y, 500, 100)
         {
-            state = 2
+            state = states.dynamite
             visible = true
         }
         break
-    case 2:
+    case states.dynamite:
         if (floor(image_index) > 5)
         {
             instance_activate_object(baddieID)
@@ -32,16 +32,16 @@ switch state
             {
                 x = other.x
                 y = other.y
-                state = (138 << 0)
+                state = states.stun
                 sprite_index = stunfallspr
                 stunned = 20
                 boundbox = false
                 create_particle(x, y, (9 << 0))
             }
-            state = 3
+            state = states.boots
         }
         break
-    case 3:
+    case states.boots:
         if (floor(image_index) == (image_number - 1))
             visible = false
         break

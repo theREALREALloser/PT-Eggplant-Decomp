@@ -42,7 +42,7 @@ function scr_noise_walk() //scr_noise_walk
                 attack = state
                 switch state
                 {
-                    case (130 << 0):
+                    case states.turn:
                         if ((!instance_exists(obj_noisetrap_crosshair)) && instance_exists(obj_noisetrap))
                         {
                             var b = noone
@@ -60,14 +60,14 @@ function scr_noise_walk() //scr_noise_walk
                                     trapID = b
                             }
                         }
-                        state = (134 << 0)
+                        state = states.walk
                         break
-                    case (174 << 0):
-                        substate = (174 << 0)
+                    case states.shield:
+                        substate = states.shield
                         shield_buffer = 120
                         break
-                    case (72 << 0):
-                        substate = (66 << 0)
+                    case states.pistol:
+                        substate = states.shotgun
                         sprite_index = spr_playerN_minigunstart
                         image_index = 0
                         break
@@ -81,7 +81,7 @@ function scr_noise_walk() //scr_noise_walk
 function scr_noise_punch() //scr_noise_punch
 {
     if (floor(image_index) == (image_number - 1))
-        state = (134 << 0)
+        state = states.walk
     hsp = 0
     if (afterimage_buffer > 0)
         afterimage_buffer--
@@ -131,7 +131,7 @@ function scr_noise_do_jump(argument0) //scr_noise_do_jump
         image_xscale = sign(hsp)
     if argument0
     {
-        state = (92 << 0)
+        state = states.jump
         sprite_index = spr_playerN_jump
         image_index = 0
     }
@@ -157,7 +157,7 @@ function scr_noise_jump() //scr_noise_jump
         }
         else
         {
-            state = (134 << 0)
+            state = states.walk
             sprite_index = spr_playerN_land
             image_index = 0
         }
@@ -168,7 +168,7 @@ function scr_noise_shield() //scr_noise_shield
 {
     switch substate
     {
-        case (174 << 0):
+        case states.shield:
             hsp = 0
             if (floor(image_index) == (image_number - 1) && sprite_index == spr_playerN_land)
                 sprite_index = spr_playerN_idle
@@ -176,15 +176,15 @@ function scr_noise_shield() //scr_noise_shield
                 shield_buffer--
             else
             {
-                substate = (92 << 0)
-                storedsubstate = (126 << 0)
+                substate = states.jump
+                storedsubstate = states.idle
                 shield_buffer = 100
                 sprite_index = spr_playerN_jump
                 image_index = 0
                 scr_noise_do_jump(false)
             }
             break
-        case (92 << 0):
+        case states.jump:
             if (sprite_index == spr_playerN_jump && floor(image_index) == (image_number - 1))
                 sprite_index = spr_playerN_fall
             y = clamp(y, -50, (room_height + 100))
@@ -196,7 +196,7 @@ function scr_noise_shield() //scr_noise_shield
                 image_index = 0
             }
             break
-        case (126 << 0):
+        case states.idle:
             hsp = 0
             if (floor(image_index) == (image_number - 1) && sprite_index == spr_playerN_land)
                 sprite_index = spr_playerN_idle
@@ -204,7 +204,7 @@ function scr_noise_shield() //scr_noise_shield
                 shield_buffer--
             else
             {
-                substate = (92 << 0)
+                substate = states.jump
                 storedsubstate = (174 << 0)
                 shield_buffer = 120
                 sprite_index = spr_playerN_jump
@@ -220,15 +220,15 @@ function scr_noise_pistol() //scr_noise_pistol
 {
     switch substate
     {
-        case (66 << 0):
+        case states.shotgun:
             if (floor(image_index) == (image_number - 1))
             {
                 sprite_index = spr_playerN_minigunidle
-                substate = (126 << 0)
+                substate = states.idle
                 cooldown = 1
             }
             break
-        case (126 << 0):
+        case states.idle:
             sprite_index = spr_playerN_minigunidle
             var b = noone
             with (obj_player)
@@ -243,13 +243,13 @@ function scr_noise_pistol() //scr_noise_pistol
                 cooldown = 80
                 shoot_buffer = 1
                 shoot_count = 30
-                substate = (69 << 0)
+                substate = states.shotgunshoot
                 if (x != b.x)
                     image_xscale = sign(b.x - x)
                 sprite_index = spr_playerN_minigunshoot
             }
             break
-        case (69 << 0):
+        case states.shotgunshoot:
             if (shoot_buffer > 0)
                 shoot_buffer--
             else
@@ -265,7 +265,7 @@ function scr_noise_pistol() //scr_noise_pistol
                 }
             }
             if (shoot_count <= 0)
-                substate = (126 << 0)
+                substate = states.idle
             break
     }
 

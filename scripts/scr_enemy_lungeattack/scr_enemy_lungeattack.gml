@@ -5,7 +5,7 @@ function scr_enemy_lungeattack() //scr_enemy_lungeattack
     var _l = false
     with (obj_player)
     {
-        if (state == (43 << 0) && image_index <= 4)
+        if (state == states.lungeattack && image_index <= 4)
             _l = true
     }
     if (!_l)
@@ -14,7 +14,7 @@ function scr_enemy_lungeattack() //scr_enemy_lungeattack
         hitLag--
     else
     {
-        state = (138 << 0)
+        state = states.stun
         hsp = hithsp
         vsp = hitvsp
         stunned = 200

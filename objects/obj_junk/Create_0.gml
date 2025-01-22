@@ -1,6 +1,6 @@
 ratgrabbed = false
 grabbed = false
-state = (0 << 0)
+state = states.normal
 hsp = 0
 vsp = 0
 grav = 0.5
@@ -8,7 +8,7 @@ flash = true
 unpickable = false
 hp = 0
 grounded = true
-state = 0
+state = states.normal
 playerid = obj_player1
 image_speed = 0
 image_index = random_range(0, (image_number - 1))

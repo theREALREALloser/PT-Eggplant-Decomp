@@ -2,7 +2,7 @@ if (room == rm_editor)
     return;
 if (image_alpha == 1)
 {
-    if (other.state != (186 << 0))
+    if (other.state != states.gotoplayer)
     {
         if (obj_player1.character == "V")
             global.playerhealth = clamp((global.playerhealth + 10), 0, 100)
@@ -17,7 +17,7 @@ if (image_alpha == 1)
             global.collect += val
         else
             global.collectN += val
-        create_collect(x, y, sprite_index);
+        create_collect(x, y, sprite_index)
         with (instance_create((x + 16), y, obj_smallnumber))
             number = string(val)
     }

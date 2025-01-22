@@ -20,7 +20,7 @@ function scr_player_spiderweb() //scr_player_spiderweb
             with (webID)
                 event_user(0)
         }
-        state = (92 << 0)
+        state = states.jump
         vsp = -11
         jumpstop = false
         sprite_index = spr_jump

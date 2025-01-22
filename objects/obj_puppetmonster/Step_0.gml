@@ -21,7 +21,7 @@ switch state
         y = camera_get_view_y(view_camera[0]) + yy
         switch substate
         {
-            case (135 << 0):
+            case states.fall:
                 yy += 2
                 if (yy > 440)
                 {
@@ -30,27 +30,27 @@ switch state
                     if (pid != noone)
                     {
                         playerid = pid
-                        substate = (141 << 0)
+                        substate = states.chase
                     }
                     else
-                        substate = (92 << 0)
+                        substate = states.jump
                 }
                 break
-            case (92 << 0):
+            case states.jump:
                 yy -= 3
                 if (yy < -100)
                 {
                     destroy = false
                     with (obj_monstertrackingrooms)
                     {
-                        sound_buffer = 0
+                        sound_buffer = sfx_cheesejump
                         monster_pos[other.monsterid].x = last_puppet_pos.x
                         monster_pos[other.monsterid].y = last_puppet_pos.y
                     }
                     state = (217 << 0)
                 }
                 break
-            case (141 << 0):
+            case states.chase:
                 yy -= 10
                 if (yy < -100)
                     scr_puppet_appear(playerid)

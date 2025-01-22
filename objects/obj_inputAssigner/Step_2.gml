@@ -8,56 +8,56 @@ with (obj_player)
     {
         switch state
         {
-            case (91 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.6)
+            case states.tackle:
+                GamepadSetVibration(_pindex, 0.8, 0.6)
                 break
-            case (5 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.8)
+            case states.tumble:
+                GamepadSetVibration(_pindex, 0.8, 0.8)
                 break
-            case (9 << 0):
+            case states.fireass:
                 GamepadSetVibration(_pindex, 1, 1, 0.85)
                 break
-            case (10 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.85)
+            case states.firemouth:
+                GamepadSetVibration(_pindex, 0.8, 0.85)
                 break
-            case (107 << 0):
+            case states.hurt:
                 GamepadSetVibration(_pindex, 1, 1, 0.85)
                 break
-            case (51 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.6)
+            case states.bombpep:
+                GamepadSetVibration(_pindex, 0.8, 0.6)
                 if (sprite_index == spr_bombpepend)
                     GamepadSetVibration(_pindex, 1, 1, 0.9)
                 break
-            case (97 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.85)
+            case states.Sjump:
+                GamepadSetVibration(_pindex, 0.8, 0.85)
                 break
-            case (99 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.6)
+            case states.Sjumpprep:
+                GamepadSetVibration(_pindex, 0.8, 0.6)
                 break
-            case (123 << 0):
+            case states.Sjumpland:
                 GamepadSetVibration(_pindex, 1, 1, 0.9)
                 break
-            case (47 << 0):
+            case states.knightpep:
                 if (sprite_index == spr_knightpepthunder)
                     GamepadSetVibration(_pindex, 1, 1, 0.9)
                 break
-            case (147 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.65)
+            case states.parry_:
+                GamepadSetVibration(_pindex, 0.8, 0.65)
                 break
-            case (111 << 0):
+            case states.freefallland:
                 GamepadSetVibration(_pindex, 1, 1, 0.85)
                 break
-            case (61 << 0):
-                GamepadSetVibration(_pindex, 0.8, 0.8, 0.6)
+            case states.chainsaw:
+                GamepadSetVibration(_pindex, 0.8, 0.6)
                 break
-            case (106 << 0):
+            case states.bump:
                 if (sprite_index != spr_hitwall)
-                    GamepadSetVibration(_pindex, 0.8, 0.8, 0.6)
+                    GamepadSetVibration(_pindex, 0.8, 0.6)
                 else
                     GamepadSetVibration(_pindex, 1, 1, 0.85)
                 break
-            case (79 << 0):
-                GamepadSetVibration(_pindex, 0.2, 0.2, 0.8)
+            case states.grab:
+                GamepadSetVibration(_pindex, 0.2, 0.8)
                 break
             default:
                 other.setVibration(_pindex, 0, 0)

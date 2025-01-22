@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_medievalremix",
-  "duration": 176.0029,
+  "duration": 176.002,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

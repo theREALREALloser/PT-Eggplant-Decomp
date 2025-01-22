@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_slimemask",
     "path": "sprites/spr_slimemask/spr_slimemask.yy",

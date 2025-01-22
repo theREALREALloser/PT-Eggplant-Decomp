@@ -1,9 +1,9 @@
-if (state != (74 << 0) && (other.hsp != 0 || other.thrown || other.state == (5 << 0)))
+if (state != states.throwing && (other.hsp != 0 || other.thrown || other.state == states.tumble))
 {
     pizzaball = true
     golfid = other.id
     shot = false
-    state = (74 << 0)
+    state = states.throwing
     sprite_index = spr_bigcheese_walk
     image_index = 0
 }

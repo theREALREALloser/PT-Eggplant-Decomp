@@ -1,21 +1,21 @@
 with (instance_place((x - 1), y, obj_player))
 {
-    if (state == (11 << 0) && other.eaten == false)
+    if (state == states.mort && other.eaten == false)
     {
         movespeed = abs(movespeed)
         other.eaten = true
         grav = 0.5
-        state = (0 << 0)
+        state = states.normal
     }
 }
 with (instance_place((x + 1), y, obj_player))
 {
-    if (state == (11 << 0) && other.eaten == false)
+    if (state == states.mort && other.eaten == false)
     {
         movespeed = abs(movespeed)
         other.eaten = true
         grav = 0.5
-        state = (0 << 0)
+        state = states.normal
     }
 }
 if eaten

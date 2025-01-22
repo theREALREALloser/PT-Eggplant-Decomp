@@ -1,8 +1,8 @@
-if (state == (8 << 0))
+if (state == states.transitioncutscene)
     return;
-if (state == (98 << 0))
+if (state == states.victory)
     return;
-if (obj_player.state != (252 << 0))
+if (obj_player.state != states.playersuperattack)
 {
     round_timer--
     if (round_timer <= 0)
@@ -36,7 +36,7 @@ if (obj_player.state != (252 << 0))
             if (b_hp <= p_hp)
             {
                 depth = obj_player1.depth + 1
-                state = (8 << 0)
+                state = states.transitioncutscene
                 with (bossID)
                 {
                     with (lastplayerid)
@@ -44,7 +44,7 @@ if (obj_player.state != (252 << 0))
                         xscale = 1
                         suplexmove = true
                         sfx_gain(suplexdashsnd)
-                        state = (42 << 0)
+                        state = states.handstandjump
                         movespeed = 10
                         image_index = random_range(0, (image_number - 1))
                         sprite_index = spr_player_groundedattack
@@ -66,5 +66,5 @@ if (obj_player.state != (252 << 0))
         }
     }
 }
-if (state != (145 << 0) && state != (98 << 0) && state != (8 << 0))
+if (state != (145 << 0) && state != states.victory && state != states.transitioncutscene)
     alarm[0] = 1

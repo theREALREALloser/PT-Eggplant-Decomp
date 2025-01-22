@@ -1,4 +1,4 @@
-if (room == hub_loadingscreen && state != 2 && (!instance_exists(obj_fadeout)))
+if (room == hub_loadingscreen && state != states.dynamite && (!instance_exists(obj_fadeout)))
 {
     with (obj_player)
     {
@@ -9,7 +9,7 @@ if (room == hub_loadingscreen && state != 2 && (!instance_exists(obj_fadeout)))
     }
     instance_create(x, y, obj_fadeout)
 }
-if (state != 0)
+if (state != states.normal)
 {
     showicon = true
     icon_alpha = 3

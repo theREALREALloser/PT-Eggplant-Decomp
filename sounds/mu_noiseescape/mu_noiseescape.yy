@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_noiseescape",
-  "duration": 159.73732,
+  "duration": 159.737,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

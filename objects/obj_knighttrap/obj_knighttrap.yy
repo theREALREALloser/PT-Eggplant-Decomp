@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_kingghost_spike",
     "path": "sprites/spr_kingghost_spike/spr_kingghost_spike.yy",

@@ -6,7 +6,7 @@ if (hp <= 0 && state != (145 << 0))
 }
 if (chooseparry_buffer > 0)
     chooseparry_buffer--
-if ((state == (42 << 0) || state == (102 << 0) || state == (167 << 0) || state == (171 << 0) || state == (173 << 0) || (state == (58 << 0) && pogochargeactive) || state == (77 << 0)) && alarm[0] <= 0)
+if ((state == states.handstandjump || state == states.crouchslide || state == (167 << 0) || state == (171 << 0) || state == (173 << 0) || (state == states.pogo && pogochargeactive) || state == states.skateboard) && alarm[0] <= 0)
     alarm[0] = 6
 switch state
 {
@@ -17,23 +17,23 @@ switch state
         inv_timer = 2
         invincible = true
         break
-    case (0 << 0):
+    case states.normal:
         grav = 0.5
         boss_noise_normal()
         break
-    case (106 << 0):
+    case states.bump:
         grav = 0.5
         state_boss_bump()
         break
-    case (42 << 0):
+    case states.handstandjump:
         grav = 0.5
         boss_noise_handstandjump()
         break
-    case (102 << 0):
+    case states.crouchslide:
         grav = 0.5
         boss_noise_crouchslide()
         break
-    case (77 << 0):
+    case states.skateboard:
         grav = 0.5
         boss_noise_skateboard()
         break
@@ -41,15 +41,15 @@ switch state
         grav = 0.5
         boss_noise_skateboardturn()
         break
-    case (92 << 0):
+    case states.jump:
         grav = 0.5
         boss_noise_jump()
         break
-    case (74 << 0):
+    case states.throwing:
         grav = 0.5
         boss_noise_throwing()
         break
-    case (58 << 0):
+    case states.pogo:
         grav = 0.5
         boss_noise_pogo()
         break
@@ -65,38 +65,38 @@ switch state
         grav = 0.5
         boss_noise_jetpackspin()
         break
-    case (134 << 0):
+    case states.walk:
         grav = 0.5
         state_boss_walk(boss_noise_do_attack)
         inv_timer = 2
         invincible = true
         break
-    case (61 << 0):
+    case states.chainsaw:
         grav = 0.5
         state_boss_chainsaw()
         break
-    case (84 << 0):
+    case states.backbreaker:
         grav = 0.5
         state_boss_taunt()
         invincible = true
         inv_timer = 2
         break
-    case (147 << 0):
+    case states.parry_:
         grav = 0.5
         state_boss_parry()
         invincible = true
         inv_timer = 2
         break
-    case (137 << 0):
+    case states.hit:
         grav = 0.5
         scr_enemy_hit()
         stunned = targetstunned
         break
-    case (138 << 0):
+    case states.stun:
         grav = 0.5
         state_boss_stun()
         break
 }
 
 angry = phase > 6
-attacking = (state == (42 << 0) || state == (102 << 0) || state == (77 << 0) || state == (167 << 0) || state == (58 << 0) || state == (170 << 0) || state == (171 << 0) || state == (173 << 0) || state == (74 << 0))
+attacking = (state == states.handstandjump || state == states.crouchslide || state == states.skateboard || state == (167 << 0) || state == states.pogo || state == (170 << 0) || state == (171 << 0) || state == (173 << 0) || state == states.throwing)

@@ -5,7 +5,7 @@ function cutscene_taxi_start(argument0) //cutscene_taxi_start
     {
         global.failcutscene = true
         global.showgnomelist = false
-        state = (146 << 0)
+        state = states.actor
         cutscene = true
         image_speed = 0.5
         sprite_index = spr_player_outofpizza1

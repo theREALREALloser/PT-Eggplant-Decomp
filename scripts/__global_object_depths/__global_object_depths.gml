@@ -264,7 +264,7 @@ function __global_object_depths() //__global_object_depths
     global.__objectNames[22] = "obj_pizzastand"
     global.__objectNames[23] = "obj_mouthhitbox"
     global.__objectNames[24] = "obj_hungrypillar"
-    global.__objectNames[25] = "objcutscene_upstairs"
+    global.__objectNames[25] = "obj_cutscene_upstairs"
     global.__objectNames[26] = "obj_rank"
     global.__objectNames[27] = "obj_timesup"
     global.__objectNames[28] = "obj_rockcutscene"

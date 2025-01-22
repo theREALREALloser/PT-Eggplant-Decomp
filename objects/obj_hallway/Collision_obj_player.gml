@@ -1,9 +1,9 @@
-if (obj_player1.state == (208 << 0))
+if (obj_player1.state == states.debugstate)
     return;
 with (other)
 {
     x = other.x
-    y = other.y + other.sprite_height - 46
+    y = other.y + (other.sprite_height - 46)
     if (!instance_exists(obj_fadeout))
     {
         obj_player1.lastroom = room

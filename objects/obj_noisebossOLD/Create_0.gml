@@ -1,13 +1,13 @@
 // Note added by UTMTCE: "GMS2.3 object function definitions" has been automatically enabled
 event_inherited()
-attack_pool[0] = [(42 << 0), (92 << 0)]
-attack_pool[1] = [(77 << 0), (167 << 0)]
-attack_pool[2] = [(42 << 0), (74 << 0), (168 << 0)]
-attack_pool[3] = [(58 << 0), (169 << 0)]
+attack_pool[0] = [states.handstandjump, states.jump]
+attack_pool[1] = [states.skateboard, (167 << 0)]
+attack_pool[2] = [states.handstandjump, states.throwing, (168 << 0)]
+attack_pool[3] = [states.pogo, (169 << 0)]
 attack_pool[4] = [(170 << 0), (172 << 0), (173 << 0)]
-attack_pool[5] = [(42 << 0), (92 << 0), (77 << 0), (167 << 0), (74 << 0), (168 << 0), (58 << 0), (169 << 0), (170 << 0), (172 << 0), (173 << 0)]
-attack_pool[6] = [(42 << 0), (92 << 0), (77 << 0), (167 << 0)]
-attack_pool[7] = [(42 << 0), (74 << 0), (168 << 0), (58 << 0), (169 << 0)]
+attack_pool[5] = [states.handstandjump, states.skateboard, (167 << 0), states.throwing, (168 << 0), states.pogo, (169 << 0), (170 << 0), (172 << 0), (173 << 0)]
+attack_pool[6] = [states.handstandjump, states.skateboard, (167 << 0)]
+attack_pool[7] = [states.handstandjump, states.throwing, (168 << 0), states.pogo, (169 << 0)]
 attack_pool[8] = [(170 << 0), (172 << 0), (173 << 0)]
 attack_type[(42 << 0)] = [(1 << 0), (1 << 0)]
 attack_type[(92 << 0)] = [(3 << 0), (1 << 0)]
@@ -121,7 +121,7 @@ function boss_destroy(argument0) //boss_destroy_gml_Object_obj_noisebossOLD_Crea
         {
             alarm[1] = room_speed * 4
             fakedeath = true
-            state = (8 << 0)
+            state = states.transitioncutscene
             depth = other.depth + 1
         }
     }
@@ -167,7 +167,7 @@ function boss_hurt_noplayer(argument0) //boss_hurt_noplayer_gml_Object_obj_noise
 
 function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_noisebossOLD_Create_0
 {
-    if ((!argument1.inv_frames) && (argument1.state != (84 << 0) || argument1.parry_inst == -4))
+    if ((!argument1.inv_frames) && (argument1.state != states.backbreaker || argument1.parry_inst == -4))
     {
         hitstate = state
         hithsp = hsp
@@ -178,15 +178,15 @@ function player_hurt(argument0, argument1) //player_hurt_gml_Object_obj_noisebos
             inv_frames = true
             alarm[1] = 15
         }
-        if (hitstate == (77 << 0) || hitstate == (171 << 0))
+        if (hitstate == states.skateboard || hitstate == (171 << 0))
         {
-            stunned = (hitstate == (77 << 0) ? 30 : 70)
+            stunned = (hitstate == states.skateboard ? 30 : 70)
             with (obj_camera)
             {
                 shake_mag = 3
                 shake_mag_acc = 3 / room_speed
             }
-            hitstate = (138 << 0)
+            hitstate = states.stun
             movespeed = 0
             hitvsp = -4
             hithsp = (-image_xscale) * 8

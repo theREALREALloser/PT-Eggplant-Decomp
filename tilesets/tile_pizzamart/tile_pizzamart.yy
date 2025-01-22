@@ -1,14 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tile_pizzamart",
-  "textureGroupId": {
-    "name": "desertgroup",
-    "path": "texturegroups/desertgroup"
-  },
   "spriteId": {
-    "name": "tilespr_tile_pizzamart",
-    "path": "sprites/tilespr_tile_pizzamart/tilespr_tile_pizzamart.yy"
+    "name": "tile_pizzamart_sprite",
+    "path": "sprites/tile_pizzamart_sprite/tile_pizzamart_sprite.yy"
   },
   "tileWidth": 32,
   "tileHeight": 32,
@@ -16,14 +9,18 @@
   "tileyoff": 2,
   "tilehsep": 4,
   "tilevsep": 4,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "desertgroup",
+    "path": "texturegroups/desertgroup"
+  },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
-  "spriteNoExport": true,
   "out_columns": 15,
   "tile_count": 240,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.000150001500014,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -270,6 +267,7 @@
     "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
     "TileSerialiseData": []
@@ -277,5 +275,9 @@
   "parent": {
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy"
-  }
+  },
+  "resourceVersion": "1.0",
+  "name": "tile_pizzamart",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

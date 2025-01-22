@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_freezer.ogg",
-  "duration": 153.48825,
+  "duration": 153.488,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

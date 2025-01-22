@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_characterselect",
-  "duration": 137.95265,
+  "duration": 137.952,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

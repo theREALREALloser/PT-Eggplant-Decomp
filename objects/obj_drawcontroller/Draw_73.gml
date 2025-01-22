@@ -30,10 +30,10 @@ if (kidsparty_lightning || dark_lightning)
             draw_set_color(c_white)
             with (obj_patrolcone)
             {
-                if (instance_exists(baddieID) && baddieID.state != (138 << 0) && baddieID.state != (4 << 0) && baddieID.state != (137 << 0) && baddieID.state != (80 << 0))
+                if (instance_exists(baddieID) && baddieID.state != states.stun && baddieID.state != states.grabbed && baddieID.state != states.hit && baddieID.state != states.punch)
                 {
                     var points = get_triangle_points(x, y, image_angle, len, size)
-                    var c = 16777215
+                    var c = c_white
                     draw_triangle_color((x - surf_x), (y - surf_y), (points[0] - surf_x), (points[1] - surf_y), (points[2] - surf_x), (points[3] - surf_y), c, c, c, false)
                 }
             }
@@ -51,7 +51,7 @@ if (kidsparty_lightning || dark_lightning)
             draw_set_color(c_white)
             with (obj_patrolcone)
             {
-                if (instance_exists(baddieID) && baddieID.state != (138 << 0) && baddieID.state != (4 << 0) && baddieID.state != (137 << 0) && baddieID.state != (80 << 0))
+                if (instance_exists(baddieID) && baddieID.state != states.stun && baddieID.state != states.grabbed && baddieID.state != states.hit && baddieID.state != states.punch)
                     draw_sprite_ext(spr_patrol_lightgradient, 0, (x - surf_x), (y - surf_y), 1, 1, image_angle, c_white, 1)
             }
             gpu_set_blendmode(bm_normal)
@@ -60,7 +60,7 @@ if (kidsparty_lightning || dark_lightning)
             draw_set_alpha(0.3)
             with (obj_patrolcone)
             {
-                if (instance_exists(baddieID) && baddieID.state != (138 << 0) && baddieID.state != (4 << 0) && baddieID.state != (137 << 0) && baddieID.state != (80 << 0))
+                if (instance_exists(baddieID) && baddieID.state != states.stun && baddieID.state != states.grabbed && baddieID.state != states.hit && baddieID.state != states.punch)
                 {
                     if (collision || (instance_exists(baddieID) && baddieID.alarm[5] != -1))
                     {
@@ -93,13 +93,13 @@ if (kidsparty_lightning || dark_lightning)
                 draw_set_alpha(circle_alpha_out)
                 with (_player)
                 {
-                    if (state != (186 << 0))
+                    if (state != states.gotoplayer)
                         draw_circle((x - surf_x + (irandom_range(-1, 1))), (y - surf_y + (irandom_range(-1, 1))), 178, false)
                 }
                 draw_set_alpha(circle_alpha_in)
                 with (_player)
                 {
-                    if (state != (186 << 0))
+                    if (state != states.gotoplayer)
                         draw_circle((x - surf_x + (irandom_range(-1, 1))), (y - surf_y + (irandom_range(-1, 1))), 128, false)
                 }
             }

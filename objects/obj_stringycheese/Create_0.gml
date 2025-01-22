@@ -1,5 +1,5 @@
 playerid = noone
-state = (0 << 0)
+state = states.normal
 handx = x
 handy = y
 drawhandx = x

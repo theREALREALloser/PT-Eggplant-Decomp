@@ -1,11 +1,11 @@
 var _obj = id
 with (other)
 {
-    if (scr_transformationcheck() || state == (5 << 0))
+    if (scr_transformationcheck() || state == states.tumble)
     {
-        if ((state != (106 << 0) || sprite_index != spr_player_catched) && (state != (5 << 0) || xscale != _obj.image_xscale) && state != (47 << 0) && state != (38 << 0) && state != (84 << 0) && state != (186 << 0))
+        if ((state != states.bump || sprite_index != spr_player_catched) && (state != states.tumble || xscale != _obj.image_xscale) && state != states.knightpep && state != states.knightpepslopes && state != states.backbreaker && state != states.gotoplayer)
         {
-            state = (5 << 0)
+            state = states.tumble
             xscale = sign(other.image_xscale)
             mask_index = spr_crouchmask
             movespeed = 14

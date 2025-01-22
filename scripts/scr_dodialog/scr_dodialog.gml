@@ -10,18 +10,18 @@ function do_dialog(argument0) //do_dialog
     }
     with (obj_player)
     {
-        if (state == (17 << 0))
+        if (state == states.ghostpossess)
         {
             visible = true
             with (possessID)
             {
-                state = (138 << 0)
+                state = states.stun
                 stunned = 50
             }
         }
         sprite_index = spr_idle
         image_speed = 0.35
-        state = (146 << 0)
+        state = states.actor
         hsp = 0
         vsp = 0
         movespeed = 0
@@ -42,7 +42,7 @@ function vigilante_add_battle() //vigilante_add_battle
     }
 }
 
-function do_dialogcutscene(argument0, argument1, argument2) //do_dialogcutscene
+function do_dialog_cutscene(argument0, argument1, argument2) //do_dialog_cutscene
 {
     if (argument1 == undefined)
         argument1 = 0

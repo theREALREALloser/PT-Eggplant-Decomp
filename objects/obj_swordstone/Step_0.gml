@@ -1,6 +1,6 @@
 if (room == rm_editor)
     return;
-if (obj_player.state == (47 << 0) || (obj_player.state == (61 << 0) && (obj_player.tauntstoredstate == (47 << 0) || obj_player.tauntstoredstate == (38 << 0))) || obj_player.state == (48 << 0) || obj_player.state == (38 << 0) || obj_player.state == (49 << 0))
+if (obj_player.state == states.knightpep || (obj_player.state == states.chainsaw && (obj_player.tauntstoredstate == states.knightpep || obj_player.tauntstoredstate == states.knightpepslopes)) || obj_player.state == states.knightpepattack || obj_player.state == states.knightpepslopes || obj_player.state == states.knightpepbump)
     sprite_index = spr_swordstonetaken
 else
     sprite_index = spr_swordstone

@@ -10,14 +10,14 @@ if (num > 0)
         var t = false
         with (b)
         {
-            if (state == (0 << 0))
+            if (state == states.normal)
             {
-                state = (8 << 0)
+                state = states.transitioncutscene
                 if other.func(b, other.id)
                     t = true
                 else
                 {
-                    state = (0 << 0)
+                    state = states.normal
                     t = false
                 }
             }

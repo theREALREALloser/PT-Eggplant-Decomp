@@ -23,17 +23,17 @@ if (inv_timer > 0)
     inv_timer--
 else
     invincible = false
-if (state == (128 << 0))
+if (state == states.charge)
 {
     if (image_index > (image_number - 1))
     {
         ram_spd = 0
         sprite_index = spr_tank_charge
         image_index = 0
-        state = (141 << 0)
+        state = states.chase
     }
 }
-if (state == (126 << 0))
+if (state == states.idle)
 {
     image_speed = 0.35
     if (!patrolling)
@@ -45,11 +45,11 @@ if (state == (126 << 0))
             patrolling = true
             sprite_index = walkspr
             image_index = 0
-            state = (134 << 0)
+            state = states.walk
         }
     }
 }
-else if (state == (141 << 0))
+else if (state == states.chase)
 {
     invincible = true
     if (ram_spd < ram_spd_max)
@@ -65,43 +65,43 @@ else if (state == (141 << 0))
         image_index = 0
         attackmode = 0
         hsp = (-image_xscale) * 2
-        state = (138 << 0)
+        state = states.stun
         stunned = 30
         vsp = -5
     }
 }
 switch state
 {
-    case (130 << 0):
+    case states.turn:
         scr_enemy_turn()
         break
-    case (134 << 0):
+    case states.walk:
         scr_enemy_walk()
         break
-    case (136 << 0):
+    case states.land:
         scr_enemy_land()
         break
-    case (137 << 0):
+    case states.hit:
         scr_enemy_hit()
         break
-    case (138 << 0):
+    case states.stun:
         scr_enemy_stun()
         break
-    case (129 << 0):
+    case states.throw_:
         scr_pizzagoblin_throw()
         break
-    case (4 << 0):
+    case states.grabbed:
         scr_enemy_grabbed()
         break
 }
 
-if (state == (138 << 0) && stunned > 100 && birdcreated == false)
+if (state == states.stun && stunned > 100 && birdcreated == false)
 {
     birdcreated = true
     with (instance_create(x, y, obj_enemybird))
         ID = other.id
 }
-if (state != (138 << 0))
+if (state != states.stun)
     birdcreated = false
 if (bombreset > 0)
     bombreset--
@@ -116,17 +116,17 @@ if (state == (142 << 0))
             important = true
             vsp = -8
             hsp = (-other.image_xscale)
-            state = (138 << 0)
+            state = states.stun
             stunned = 50
         }
     }
     if (image_index > (image_number - 1))
     {
         sprite_index = walkspr
-        state = (134 << 0)
+        state = states.walk
     }
 }
-if (state == (134 << 0) && bombreset == 0 && forcespawn == false)
+if (state == states.walk && bombreset == 0 && forcespawn == false)
 {
     attackmode = choose(0, 0, 1, 1)
     switch attackmode
@@ -138,7 +138,7 @@ if (state == (134 << 0) && bombreset == 0 && forcespawn == false)
             if (x != targetplayer.x)
                 image_xscale = (-(sign(x - targetplayer.x)))
             forcespawn = true
-            state = (129 << 0)
+            state = states.throw_
             break
         case 1:
             nextattack = 0
@@ -147,7 +147,7 @@ if (state == (134 << 0) && bombreset == 0 && forcespawn == false)
             sprite_index = spr_tank_chargestart
             image_index = 0
             ram_count = ram_max
-            state = (128 << 0)
+            state = states.charge
             forcespawn = true
             if (slide_buffer <= 0)
                 hsp = 0
@@ -155,7 +155,7 @@ if (state == (134 << 0) && bombreset == 0 && forcespawn == false)
     }
 
 }
-if (state == (134 << 0) && bombreset == 0 && forcespawn == true)
+if (state == states.walk && bombreset == 0 && forcespawn == true)
 {
     nextattack = 2
     if (slide_buffer <= 0)
@@ -167,7 +167,7 @@ if (state == (134 << 0) && bombreset == 0 && forcespawn == true)
     state = (142 << 0)
     forcespawn = false
 }
-if (state == (138 << 0))
+if (state == states.stun)
 {
     if (sprite_index == spr_tank_hitwall && image_index > (image_number - 1))
         image_index = image_number - 1
@@ -184,7 +184,7 @@ if (state == (138 << 0))
 }
 if (flash == true && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed
-if (state != (4 << 0))
+if (state != states.grabbed)
     depth = 0
-if (state != (138 << 0))
+if (state != states.stun)
     thrown = false

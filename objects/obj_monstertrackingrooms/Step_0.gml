@@ -59,7 +59,7 @@ if (sound_buffer > 0)
                 alarm[i] = t
         }
         if (i != 4 && monster_pos[i].x == sound_pos.x && monster_pos[i].y == sound_pos.y)
-            sound_buffer = 0
+            sound_buffer = sfx_cheesejump
     }
 }
 else

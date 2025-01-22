@@ -3,7 +3,7 @@ if (!instance_exists(ID))
     instance_destroy()
     return;
 }
-if (ID.state != (80 << 0))
+if (ID.state != states.punch)
 {
     instance_destroy()
     ID.breakdanceinst = -4

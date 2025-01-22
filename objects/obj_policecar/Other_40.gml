@@ -1,4 +1,4 @@
-if (state != (152 << 0))
+if (state != states.taxi2)
     return;
 if (!instance_exists(obj_fadeout))
 {

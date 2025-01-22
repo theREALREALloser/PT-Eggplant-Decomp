@@ -1,10 +1,7 @@
 {
-  "resourceType": "GMTileSet",
-  "resourceVersion": "1.0",
-  "name": "tile_kitchen",
   "spriteId": {
-    "name": "tilespr_tile_kitchen",
-    "path": "sprites/tilespr_tile_kitchen/tilespr_tile_kitchen.yy",
+    "name": "tile_kitchen_sprite",
+    "path": "sprites/tile_kitchen_sprite/tile_kitchen_sprite.yy"
   },
   "tileWidth": 32,
   "tileHeight": 32,
@@ -14,8 +11,8 @@
   "tilevsep": 4,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "backgroundgroup",
-    "path": "texturegroups/backgroundgroup",
+    "name": "kidspartygroup",
+    "path": "texturegroups/kidspartygroup"
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
@@ -23,7 +20,7 @@
   "tile_count": 750,
   "autoTileSets": [],
   "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.00015,
+  "tileAnimationSpeed": 15.0,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -775,17 +772,22 @@
       746,
       747,
       748,
-      749,
+      749
     ],
-    "SerialiseFrameCount": 1,
+    "SerialiseFrameCount": 1
   },
   "macroPageTiles": {
+    "TileDataFormat": 0,
     "SerialiseWidth": 0,
     "SerialiseHeight": 0,
-    "TileSerialiseData": [],
+    "TileSerialiseData": []
   },
   "parent": {
     "name": "Tile Sets",
-    "path": "folders/Tile Sets.yy",
+    "path": "folders/Tile Sets.yy"
   },
+  "resourceVersion": "1.0",
+  "name": "tile_kitchen",
+  "tags": [],
+  "resourceType": "GMTileSet"
 }

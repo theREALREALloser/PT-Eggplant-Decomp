@@ -12,7 +12,7 @@ function Command() constructor
     {
     };
     
-    state = 1;
+    state = states.revolver;
 }
 
 function PlaceCommand(argument0, argument1, argument2) : Command() constructor
@@ -48,7 +48,7 @@ function PlaceCommand(argument0, argument1, argument2) : Command() constructor
     
     static OnDelete = function()
     {
-        if (state == 0)
+        if (state == states.normal)
         {
             instance_activate_object(instance);
             instance_destroy(instance);

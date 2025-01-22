@@ -1,8 +1,8 @@
-if (state != (4 << 0))
+if (state != states.grabbed)
 {
     with (obj_player)
     {
-        if (y < other.y && attacking == false && state == (92 << 0) && vsp > 0)
+        if (y < other.y && attacking == false && state == states.jump && vsp > 0)
         {
             if (vsp > 0)
             {
@@ -15,7 +15,7 @@ if (state != (4 << 0))
                     other.vsp = -5
                     other.hsp = (-other.image_xscale) * 3
                     instance_create(x, (y + 50), obj_stompeffect)
-                    other.state = (138 << 0)
+                    other.state = states.stun
                     stompAnim = true
                     other.image_index = 0
                     vsp = -14
@@ -26,7 +26,7 @@ if (state != (4 << 0))
                     other.vsp = -5
                     other.hsp = (-other.image_xscale) * 3
                     instance_create(x, (y + 50), obj_stompeffect)
-                    other.state = (138 << 0)
+                    other.state = states.stun
                     stompAnim = true
                     other.image_index = 0
                     vsp = -9
@@ -34,7 +34,7 @@ if (state != (4 << 0))
                 }
             }
         }
-        if (state == (103 << 0))
+        if (state == states.mach1)
         {
             instance_create(x, y, obj_bumpeffect)
             other.stunned = 40
@@ -47,36 +47,36 @@ if (state != (4 << 0))
             machpunchAnim = true
             if (x != other.x)
                 other.image_xscale = (-(sign(other.x - x)))
-            other.state = (138 << 0)
+            other.state = states.stun
             image_index = 0
-            state = (91 << 0)
+            state = states.tackle
         }
-        if ((state == (104 << 0) || state == (79 << 0)) && other.grounded == true)
+        if ((state == states.mach2 || state == states.grab) && other.grounded == true)
         {
             instance_create(x, y, obj_bumpeffect)
             other.vsp = -10
             other.hsp = xscale
             other.image_index = 0
             other.stunned = 200
-            other.state = (138 << 0)
+            other.state = states.stun
             machpunchAnim = true
-            if ((!grounded) && state != (108 << 0))
+            if ((!grounded) && state != states.freefall)
             {
                 sprite_index = spr_player_mach2jump
                 vsp = -10
             }
         }
-        if (attacking == true && state != (104 << 0))
+        if (attacking == true && state != states.mach2)
         {
-            if (state == (121 << 0))
+            if (state == states.mach3)
                 other.shot = true
             image_index = 0
             instance_destroy(other)
             machpunchAnim = true
-            if ((!grounded) && state != (108 << 0))
+            if ((!grounded) && state != states.freefall)
                 vsp = -10
         }
-        if (attacking == false && state != (91 << 0) && state != (107 << 0) && (!(y < other.y)) && grabbing == false && other.state != (138 << 0))
+        if (attacking == false && state != states.tackle && state != states.hurt && (!(y < other.y)) && grabbing == false && other.state != states.stun)
         {
             if (x != other.x)
             {
@@ -88,12 +88,12 @@ if (state != (4 << 0))
             other.image_xscale = (-xscale)
             other.hsp = (-other.image_xscale) * 4
             other.vsp = -4
-            if (other.state == (134 << 0) || other.state == (130 << 0))
-                other.state = (126 << 0)
+            if (other.state == states.walk || other.state == states.turn)
+                other.state = states.idle
             image_index = 0
-            state = (106 << 0)
-            if (other.state == (136 << 0))
-                other.state = (126 << 0)
+            state = states.bump
+            if (other.state == states.land)
+                other.state = states.idle
         }
     }
 }

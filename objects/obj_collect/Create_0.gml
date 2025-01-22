@@ -8,7 +8,7 @@ with (other)
         sprite_index = choose(spr_halloweencollectibles1, spr_halloweencollectibles2, spr_halloweencollectibles3, spr_halloweencollectibles4, spr_halloweencollectibles5)
     image_speed = 0.35
     global.collected = false
-    global.collectsound = 0
+    global.collectsound = sfx_cheesejump
 }
 if (obj_player.character == "S")
     sprite_index = spr_snickcollectible1

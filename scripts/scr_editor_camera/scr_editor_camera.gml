@@ -19,8 +19,8 @@ function scr_editor_camera_update() //scr_editor_camera_update
     var my = device_mouse_y_to_gui(0)
     if key_mbmiddle
     {
-        cx += ((mouse_xprevious - mx) * zoom * drag_speed)
-        cy += ((mouse_yprevious - my) * zoom * drag_speed)
+        cx += ((mouse_xprevious - mx) * (zoom * drag_speed))
+        cy += ((mouse_yprevious - my) * (zoom * drag_speed))
     }
     mouse_xprevious = mx
     mouse_yprevious = my

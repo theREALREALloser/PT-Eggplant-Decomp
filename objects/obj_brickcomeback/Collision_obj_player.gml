@@ -3,7 +3,7 @@ if (!trapped)
     if (comeback == true)
     {
         other.brick = true
-        if (other.state != (260 << 0) && other.state != (84 << 0))
+        if (other.state != states.ratmountcrouch && other.state != states.backbreaker)
         {
             if (!other.grounded)
                 other.sprite_index = spr_player_ratmountfall
@@ -14,7 +14,7 @@ if (!trapped)
         instance_destroy()
     }
 }
-else if (other.state == (259 << 0) && baddieID == noone)
+else if (other.state == states.ratmountpunch && baddieID == noone)
 {
     scr_soundeffect(sfx_punch)
     vsp = -6

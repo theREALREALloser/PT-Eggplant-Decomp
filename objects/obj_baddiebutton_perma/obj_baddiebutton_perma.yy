@@ -8,7 +8,7 @@
   },
   "solid": false,
   "visible": true,
-  "managed": false,
+  "managed": true,
   "spriteMaskId": {
     "name": "spr_baddiebutton",
     "path": "sprites/spr_baddiebutton/spr_baddiebutton.yy",

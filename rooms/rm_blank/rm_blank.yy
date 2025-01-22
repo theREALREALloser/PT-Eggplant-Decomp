@@ -32,7 +32,7 @@
     "inheritViewSettings": false,
     "enableViews": false,
     "clearViewBackground": false,
-    "clearDisplayBuffer": false,
+    "clearDisplayBuffer": true,
   },
   "physicsSettings": {
     "inheritPhysicsSettings": false,
@@ -42,7 +42,7 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Unused Stuff",
-    "path": "folders/Rooms/Unused Stuff.yy",
+    "name": "UNUSED ROOMS",
+    "path": "folders/Rooms/UNUSED ROOMS.yy",
   },
 }

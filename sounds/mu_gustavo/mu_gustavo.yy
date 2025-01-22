@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mu_gustavo",
-  "duration": 80.49342,
+  "duration": 80.493,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",

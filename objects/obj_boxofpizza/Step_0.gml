@@ -4,7 +4,7 @@ with (obj_player)
 {
     if (other.image_yscale == 1)
     {
-        if (((key_down && (!(place_meeting(x, (y + 1), obj_destructibles))) && place_meeting(x, (y + 1), other) && (state == (100 << 0) || character == "S" || character == "M" || state == (65 << 0) || (state == (5 << 0) && sprite_index == spr_dive))) || ((state == (102 << 0) || state == (108 << 0) || state == (111 << 0) || (state == (5 << 0) && sprite_index == spr_machroll)) && (!(place_meeting(x, (y + 1), obj_destructibles))) && place_meeting(x, (y + 1), other))) && (!instance_exists(obj_fadeout)) && state != (112 << 0) && state != (95 << 0))
+        if (((key_down && (!(place_meeting(x, (y + 1), obj_destructibles))) && place_meeting(x, (y + 1), other) && (state == states.crouch || character == "S" || character == "M" || state == states.machroll || (state == states.tumble && sprite_index == spr_dive))) || ((state == states.crouchslide || state == states.freefall || state == states.freefallland || (state == states.tumble && sprite_index == spr_machroll)) && (!(place_meeting(x, (y + 1), obj_destructibles))) && place_meeting(x, (y + 1), other))) && (!instance_exists(obj_fadeout)) && state != states.door && state != states.comingoutdoor)
         {
             obj_player1.lastroom = room
             obj_player2.lastroom = room
@@ -29,23 +29,23 @@ with (obj_player)
                 }
                 obj_player1.sprite_index = obj_player1.spr_downpizzabox
                 obj_player1.image_index = 0
-                obj_player1.state = (112 << 0)
+                obj_player1.state = states.door
                 obj_player2.sprite_index = obj_player2.spr_downpizzabox
                 obj_player2.image_index = 0
-                if (obj_player2.state != (186 << 0))
-                    obj_player2.state = (112 << 0)
+                if (obj_player2.state != states.gotoplayer)
+                    obj_player2.state = states.door
             }
             else
             {
                 sprite_index = spr_downpizzabox
                 image_index = 0
-                state = (112 << 0)
+                state = states.door
             }
         }
     }
     if (other.image_yscale == -1)
     {
-        if (((key_up && (!(place_meeting(x, (y - 1), obj_destructibles))) && place_meeting(x, (y - 10), other) && (state == (0 << 0) || state == (58 << 0) || state == (92 << 0) || state == (103 << 0) || state == (104 << 0) || state == (121 << 0) || state == (99 << 0) || (state == (80 << 0) && sprite_index == spr_player_breakdanceuppercut))) || ((state == (97 << 0) || state == (123 << 0)) && (!(place_meeting(x, (y - 1), obj_destructibles))) && place_meeting(x, (y - 1), other))) && (!instance_exists(obj_fadeout)) && state != (112 << 0) && state != (95 << 0))
+        if (((key_up && (!(place_meeting(x, (y - 1), obj_destructibles))) && place_meeting(x, (y - 10), other) && (state == states.normal || state == states.pogo || state == states.jump || state == states.mach1 || state == states.mach2 || state == states.mach3 || state == states.Sjumpprep || (state == states.punch && sprite_index == spr_player_breakdanceuppercut))) || ((state == states.Sjump || state == states.Sjumpland) && (!(place_meeting(x, (y - 1), obj_destructibles))) && place_meeting(x, (y - 1), other))) && (!instance_exists(obj_fadeout)) && state != states.door && state != states.comingoutdoor)
         {
             obj_player1.lastroom = room
             obj_player2.lastroom = room
@@ -74,17 +74,17 @@ with (obj_player)
                 }
                 obj_player1.sprite_index = obj_player1.spr_uppizzabox
                 obj_player1.image_index = 0
-                obj_player1.state = (112 << 0)
+                obj_player1.state = states.door
                 obj_player2.sprite_index = obj_player2.spr_uppizzabox
                 obj_player2.image_index = 0
-                if (obj_player2.state != (186 << 0))
-                    obj_player2.state = (112 << 0)
+                if (obj_player2.state != states.gotoplayer)
+                    obj_player2.state = states.door
             }
             else
             {
                 sprite_index = spr_uppizzabox
                 image_index = 0
-                state = (112 << 0)
+                state = states.door
             }
         }
     }

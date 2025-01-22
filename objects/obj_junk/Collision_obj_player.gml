@@ -1,4 +1,4 @@
-if ((!grabbed) && (other.state == (42 << 0) || other.state == (80 << 0) || other.state == (43 << 0)) && unpickable == false)
+if ((!grabbed) && (other.state == states.handstandjump || other.state == states.punch || other.state == states.lungeattack) && unpickable == false)
 {
     instance_create((x + obj_player1.xscale * 40), y, obj_punchdust)
     with (other)
@@ -7,16 +7,16 @@ if ((!grabbed) && (other.state == (42 << 0) || other.state == (80 << 0) || other
         sprite_index = spr_haulingstart
         baddiegrabbedID = other.id
         grabbingenemy = true
-        state = (79 << 0)
+        state = states.grab
     }
     playerid = other.object_index
     grabbed = true
 }
-if ((!grabbed) && unpickable == false && (!ratgrabbed) && other.state == (193 << 0))
+if ((!grabbed) && unpickable == false && (!ratgrabbed) && other.state == states.ratmountattack)
 {
     ratplayerid = other.id
     ratgrabbed = true
-    state = (205 << 0)
+    state = states.ratgrabbed
     other.ratgrabbedID = id
-    other.state = (191 << 0)
+    other.state = states.ratmount
 }

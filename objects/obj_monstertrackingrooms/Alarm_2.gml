@@ -5,7 +5,7 @@ if (player_posX != -1 && player_posY != -1 && player_posY == puppet_pos.y && sou
     last_puppet_pos.y = puppet_pos.y
     puppet_pos.x = player_posX
     puppet_pos.y = player_posY
-    sound_buffer = 0
+    sound_buffer = sfx_cheesejump
     monster_room[2] = ds_grid_get(room_grid, monster_pos[2].x, monster_pos[2].y)
 }
 if (monster_room[2] == room_get_name(room))

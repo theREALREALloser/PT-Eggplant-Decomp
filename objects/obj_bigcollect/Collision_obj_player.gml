@@ -1,4 +1,4 @@
-if (other.state != (186 << 0))
+if (other.state != states.gotoplayer)
 {
     if (obj_player1.character == "V")
         global.playerhealth = clamp((global.playerhealth + 10), 0, 100)
@@ -13,7 +13,7 @@ if (other.state != (186 << 0))
         global.collect += val
     else
         global.collectN += val
-    create_collect(x, y, sprite_index);
+    create_collect(x, y, sprite_index)
     with (instance_create((x + 16), y, obj_smallnumber))
         number = string(val)
     tv_do_expression(spr_tv_exprcollect)

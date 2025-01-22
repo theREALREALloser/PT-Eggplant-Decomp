@@ -34,7 +34,7 @@ function state_player_normal() //state_player_normal
     }
     if (notecreate <= 0)
     {
-        instance_create((x + (random_range(-70, 70))), (y + (random_range(-70, 70))), obj_notes)
+        instance_create((x + (random_range(-70, 70))), (y + (random_range(-70, obj_conveyorspawner))), obj_notes)
         notecreate = 10
     }
     if place_meeting(x, (y + 1), obj_railparent)
@@ -249,7 +249,7 @@ function state_player_normal() //state_player_normal
             particle_set_scale((4 << 0), xscale, 1)
             create_particle(x, y, (4 << 0), 0)
             vsp = -11
-            state = (92 << 0)
+            state = states.jump
             jumpAnim = true
             jumpstop = false
             if place_meeting(x, (y + 1), obj_railparent)
@@ -258,7 +258,7 @@ function state_player_normal() //state_player_normal
         }
         if (key_down || (grounded && vsp > 0 && scr_solid(x, (y - 3)) && scr_solid(x, y)) || place_meeting(x, y, obj_solid))
         {
-            state = (100 << 0)
+            state = states.crouch
             landAnim = false
             crouchAnim = true
             image_index = 0
@@ -278,7 +278,7 @@ function state_player_normal() //state_player_normal
         }
         else
             jumpAnim = true
-        state = (92 << 0)
+        state = states.jump
     }
     if (sprite_index == spr_player_breakdance && breakdance_speed > 0.4)
     {
@@ -307,14 +307,14 @@ function state_player_normal() //state_player_normal
         suplexmove = true
         suplexdashsnd = audio_play_sound(sfx_suplexdash, 1, 0)
         sfx_gain(suplexdashsnd)
-        state = (42 << 0)
+        state = states.handstandjump
         movespeed = 8
         image_index = 0
         flash = true
     }
     else if ((key_slap2 || input_buffer_slap < 8) && key_up)
     {
-        state = (80 << 0)
+        state = states.punch
         image_index = 0
         sprite_index = spr_player_breakdanceuppercut
         vsp = -14
@@ -325,17 +325,17 @@ function state_player_normal() //state_player_normal
     switch character
     {
         case "P":
-            if (key_attack && state != (42 << 0) && (!(place_meeting((x + xscale), y, obj_solid))) && ((!(place_meeting(x, (y + 1), obj_iceblockslope))) || (!(place_meeting((x + xscale * 5), y, obj_solid)))) && (!global.kungfu))
+            if (key_attack && state != states.handstandjump && (!(place_meeting((x + xscale), y, obj_solid))) && ((!(place_meeting(x, (y + 1), obj_iceblockslope))) || (!(place_meeting((x + xscale * 5), y, obj_solid)))) && (!global.kungfu))
             {
                 sprite_index = spr_mach1
                 image_index = 0
-                state = (104 << 0)
+                state = states.mach2
                 if (movespeed < 6)
                     movespeed = 6
             }
-            if (global.kungfu && key_attack && state != (42 << 0))
+            if (global.kungfu && key_attack && state != states.handstandjump)
             {
-                state = (206 << 0)
+                state = states.blockstance
                 sprite_index = spr_player_airattack
                 hsp = 0
                 movespeed = 0
@@ -347,7 +347,7 @@ function state_player_normal() //state_player_normal
                 if key_attack2
                 {
                     scr_soundeffect(sfx_noisewoah)
-                    state = (99 << 0)
+                    state = states.Sjumpprep
                     image_index = 0
                     sprite_index = ((!key_up) ? spr_playerN_jetpackstart : spr_superjumpprep)
                     hsp = 0
@@ -358,7 +358,7 @@ function state_player_normal() //state_player_normal
             {
                 sprite_index = spr_playerN_pogostart
                 image_index = 0
-                state = (58 << 0)
+                state = states.pogo
             }
             break
         case "V":
@@ -370,14 +370,14 @@ function state_player_normal() //state_player_normal
                     sprite_index = spr_mach1
                     image_index = 0
                     jumpAnim = true
-                    state = (103 << 0)
+                    state = states.mach1
                 }
                 else
                 {
                     movespeed = 21
                     sprite_index = spr_crazyrun
                     jumpAnim = true
-                    state = (121 << 0)
+                    state = states.mach3
                     movespeed = 20
                 }
             }
@@ -385,7 +385,7 @@ function state_player_normal() //state_player_normal
             {
                 if (move == 0)
                     movespeed = 0
-                state = (2 << 0)
+                state = states.dynamite
                 sprite_index = spr_playerV_dynamitethrow
                 image_index = 0
                 with (instance_create(x, y, obj_dynamite))
@@ -403,7 +403,7 @@ function state_player_normal() //state_player_normal
                     movespeed = 0
                 sprite_index = spr_playerV_revolverstart
                 image_index = 0
-                state = (1 << 0)
+                state = states.revolver
             }
             break
     }
@@ -449,20 +449,20 @@ function state_pepperman_normal() //state_pepperman_normal
         sprite_index = spr_jump
         image_index = 0
         vsp = (-pepperman_jumpspeed)
-        state = (92 << 0)
+        state = states.jump
         with (instance_create(x, (y - 5), obj_highjumpcloud2))
             image_xscale = other.xscale
     }
     if ((!grounded) && (!key_jump))
     {
-        state = (92 << 0)
+        state = states.jump
         sprite_index = spr_fall
     }
     if (key_attack && ((!(place_meeting((x + xscale), y, obj_solid))) || place_meeting((x + xscale), y, obj_destructibles)) && pepperman_grabID == noone && sprite_index != spr_pepperman_throw)
     {
         if (move != 0)
             xscale = move
-        state = (153 << 0)
+        state = states.shoulderbash
         sprite_index = spr_pepperman_shoulderstart
         image_index = 0
         scr_soundeffect(sfx_suplexdash)

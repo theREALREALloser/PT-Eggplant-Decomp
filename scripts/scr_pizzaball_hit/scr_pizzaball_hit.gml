@@ -26,13 +26,13 @@ function scr_pizzaball_grabbed() //scr_pizzaball_grabbed
     {
         sprite_index = spr_golfidle
         image_index = 0
-        state = (148 << 0)
+        state = states.golf
         golfid = other.id
         hsp = 0
         vsp = 0
     }
     player = pl
-    state = (148 << 0)
+    state = states.golf
 }
 
 function scr_pizzaball_go_to_thrown(argument0, argument1, argument2) //scr_pizzaball_go_to_thrown
@@ -47,7 +47,7 @@ function scr_pizzaball_go_to_thrown(argument0, argument1, argument2) //scr_pizza
         jumpspeed = 12
     vsp = (-jumpspeed)
     bounced = false
-    state = (156 << 0)
-    substate = (156 << 0)
+    state = states.thrown
+    substate = states.thrown
 }
 

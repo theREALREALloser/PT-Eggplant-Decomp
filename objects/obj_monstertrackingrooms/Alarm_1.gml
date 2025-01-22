@@ -15,7 +15,7 @@ if (self.room_place(blob_pos.x, blob_pos.y) != room_get_name(room))
         self.blob_create(true, false)
     if (sound_pos.x == blob_pos.x && sound_pos.y == blob_pos.y)
     {
-        sound_buffer = 0
+        sound_buffer = sfx_cheesejump
         with (obj_blobmonster)
         {
             investigatestate = 0
