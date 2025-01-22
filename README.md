@@ -5,6 +5,7 @@ this decomp is a standalone WITHOUT the Added stuff besides the other eggplant d
 # About the issues in the decomp n stuff
 if you have found any issues about the decomp please let me know by making a new issue in the GitHub page.
 any other issues in newer runtimes will not be fixed and will be closed.
+it also inculdes enums dont forget about that..
 # what i decompiled it with
 - Underanalyzer for Collision
 - UTMTCE for Everything else
